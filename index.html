@@ -1,18 +1,398 @@
-<!DOCTYPE html>
-<html lang="en" dir="ltr">
+<!doctype html>
+<html lang="es">
   <head>
-    <meta charset="utf-8">
-    <title>Mi página web</title>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
-    <link rel="stylesheet" href="estilo.css">
+    <meta charset="utf-8" />
+    <title>Rodrigo Salguero – pacha2880</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta
+      name="description"
+      content="Página personal de Rodrigo Salguero (pacha2880): algoritmos, datos y algunos proyectos seleccionados."
+    />
+    <style>
+      :root {
+        --bg: #f5f5f5;
+        --fg: #111111;
+        --muted: #555555;
+        --accent: #222222;
+        --border: #dddddd;
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      body {
+        margin: 0;
+        padding: 0;
+        font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
+          Roboto, sans-serif;
+        color: var(--fg);
+
+        /* 🎨 Fondo degradado fucsia → azul ultramarino */
+        background: linear-gradient(
+          90deg,
+          #001b7a 0%,
+          #ff00a8 50%,
+          #001b7a 100%
+        );
+
+        min-height: 100vh;
+        background-attachment: fixed;
+      }
+
+      .page {
+        max-width: 780px;
+        margin: 0 auto;
+        padding: 32px 16px 40px;
+        background: rgba(255, 255, 255, 0.85);
+        border-radius: 12px;
+        backdrop-filter: blur(5px);
+        box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
+      }
+
+      header {
+        margin-bottom: 28px;
+        border-bottom: 1px solid var(--border);
+        padding-bottom: 18px;
+      }
+
+      h1 {
+        font-size: 2rem;
+        margin: 0 0 4px;
+        letter-spacing: 0.03em;
+      }
+
+      .subtitle {
+        margin: 0 0 12px;
+        font-size: 0.95rem;
+        color: var(--muted);
+      }
+
+      .header-actions {
+        margin-top: 4px;
+      }
+
+      .cv-button {
+        display: inline-block;
+        margin-top: 4px;
+        padding: 8px 16px;
+        border: 1px solid #000;
+        border-radius: 8px;
+        text-decoration: none;
+        color: #000;
+        background: #fff3;
+        font-size: 0.9rem;
+      }
+
+      .cv-button:hover {
+        background: #ffffffaa;
+      }
+
+      main {
+        font-size: 0.98rem;
+        line-height: 1.6;
+      }
+
+      section {
+        margin-bottom: 26px;
+      }
+
+      section h2 {
+        font-size: 1rem;
+        text-transform: uppercase;
+        letter-spacing: 0.08em;
+        font-weight: 600;
+        margin: 0 0 10px;
+        color: var(--accent);
+      }
+
+      p {
+        margin: 0 0 10px;
+      }
+
+      .now-list,
+      .projects-list {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+      }
+
+      .now-list li {
+        margin-bottom: 6px;
+      }
+
+      .projects-list li {
+        padding: 10px 0;
+        border-bottom: 1px solid var(--border);
+      }
+
+      .project-title {
+        font-weight: 600;
+        margin-bottom: 2px;
+      }
+
+      .project-meta {
+        font-size: 0.85rem;
+        color: var(--muted);
+        margin-bottom: 4px;
+      }
+
+      a {
+        color: inherit;
+        text-decoration: none;
+        border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+      }
+
+      a:hover {
+        border-bottom-color: rgba(0, 0, 0, 0.7);
+      }
+
+      .links-inline a {
+        margin-right: 12px;
+        white-space: nowrap;
+      }
+
+      footer {
+        margin-top: 24px;
+        padding-top: 16px;
+        border-top: 1px solid var(--border);
+        font-size: 0.85rem;
+        color: var(--muted);
+      }
+
+      @media (min-width: 768px) {
+        .page {
+          padding-top: 48px;
+        }
+      }
+    </style>
   </head>
   <body>
-    <div class="container main-container">
-      <h1>Mi página web</h1>
-      <hr>
-      <p>
-        Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-      </p>
+    <div class="page">
+      <header>
+        <h1>Rodrigo Salguero</h1>
+        <p class="subtitle">
+          Programador Competitivo de noche, Ingeniero de Software de día.
+        </p>
+        <div class="header-actions">
+          <a
+            href="CV_Rodrigo_Salguero.pdf"
+            download
+            class="cv-button"
+          >
+            Ver CV (PDF)
+          </a>
+        </div>
+      </header>
+
+      <main>
+        <section>
+          <h2>Quién soy</h2>
+          <p>
+            Ingeniero de software y competidor de programación con experiencia en
+            integración, simulación y análisis de datos.
+          </p>
+          <p>
+            Dos veces finalista mundial de la ICPC (2022, 2024) y desarrollador con práctica
+            profesional en Volvo Group, trabajando en entornos de simulación, C++,
+            Python, Docker y Kubernetes. También tengo experiencia en procesos de
+            integración continua y despliegue (CI/CD) con Jenkins y Gradle, y en
+            desarrollo web backend con Python (Flask).
+          </p>
+          <p>
+            Me interesa entender sistemas complejos, mejorar procesos y compartir
+            conocimiento con otros competidores y estudiantes.
+          </p>
+        </section>
+
+        <section>
+          <h2>Ahora</h2>
+          <ul class="now-list">
+            <li>• Trabajando en Volvo Group, Suecia, en simulación y validación de software embebido.</li>
+            <li>• Recientemente he finalizado mi tesis sobre estrategias de entrenamiento en programación competitiva.</li>
+            <li>• Manteniendo proyectos personales de datos, herramientas y docencia para la comunidad ICPC en Bolivia.</li>
+          </ul>
+        </section>
+
+        <section>
+          <h2>Proyectos</h2>
+          <ul class="projects-list">
+            <li>
+              <div class="project-title">
+                CSES Pacha Tools – Extensión para CSES
+              </div>
+              <div class="project-meta">
+                Añade utilidades para ordenar y filtrar problemas en
+                <a href="https://cses.fi/problemset/" target="_blank">CSES</a>.
+              </div>
+              <div class="links-inline">
+                <a
+                  href="https://github.com/pacha2880/cses-pacha-tools"
+                  target="_blank"
+                  >Repositorio</a
+                >
+              </div>
+            </li>
+
+            <li>
+              <div class="project-title">ICPC LATAM – Datos y análisis</div>
+              <div class="project-meta">
+                Dataset y scripts para explorar problemas y tendencias en
+                competencias ICPC regionales.
+              </div>
+              <div class="links-inline">
+                <a
+                  href="https://github.com/pacha2880/ICPC-latam-datos"
+                  target="_blank"
+                  >Repositorio</a
+                >
+              </div>
+            </li>
+
+            <li>
+              <div class="project-title">ICPC Consejos y Encuestas</div>
+              <div class="project-meta">
+                Análisis de 112 estrategias de entrenamiento validadas por
+                competidores expertos, parte de mi tesis de grado.
+              </div>
+              <div class="links-inline">
+                <a
+                  href="https://github.com/pacha2880/icpc-consejos-encuestas"
+                  target="_blank"
+                  >Repositorio</a
+                >
+              </div>
+            </li>
+
+            <li>
+              <div class="project-title">
+                Los Anticuchos – Algoritmos para competencias
+              </div>
+              <div class="project-meta">
+                Implementaciones de algoritmos y plantillas usadas en
+                competencias de programación.
+              </div>
+              <div class="links-inline">
+                <a
+                  href="https://github.com/pacha2880/los-anticuchos"
+                  target="_blank"
+                  >Repositorio</a
+                >
+              </div>
+            </li>
+            <li>
+              <div class="project-title">
+                Competitive Programming Codes
+              </div>
+              <div class="project-meta">
+                Colección de códigos y soluciones a problemas de
+                programación competitiva.
+              </div>
+              <div class="links-inline">
+                <a
+                  href="https://github.com/pacha2880/competitive_programming_codes"
+                  target="_blank"
+                  >Repositorio</a
+                >
+              </div>
+            </li>
+
+            <li>
+              <div class="project-title">Hambre – backend</div>
+              <div class="project-meta">
+                Servicio sencillo en backend para experimentos y pequeñas
+                aplicaciones.
+              </div>
+              <div class="links-inline">
+                <a
+                  href="https://github.com/pacha2880/hambre-back"
+                  target="_blank"
+                  >Repositorio</a
+                >
+              </div>
+            </li>
+
+            <li style="
+              background: linear-gradient(
+                90deg,
+                rgba(255, 0, 150, 0.15),
+                rgba(255, 255, 0, 0.15),
+                rgba(0, 255, 255, 0.15),
+                rgba(0, 150, 255, 0.15),
+                rgba(255, 0, 150, 0.15)
+              );
+              border-radius: 10px;
+              padding: 14px 12px;
+              transition: all 0.3s ease;
+            ">
+              <div class="project-title">Prototipos y juegos web</div>
+              <div class="project-meta">
+                Prototipos para jugar un rato y probar ideas.  
+                <em style="font-size: 0.85rem; color: #444;">Click para jugar!!! 🎮</em>
+              </div>
+              <div class="links-inline">
+                <a href="https://pacha2880.github.io/space-challenge" target="_blank">Space Challenge</a>
+                <a href="https://pacha2880.github.io/typing-mario" target="_blank">Typing Mario</a>
+                <a href="https://pacha2880.github.io/snake" target="_blank">Snake</a>
+                <a href="https://pacha2880.github.io/paint" target="_blank">Paint</a>
+                <a href="https://pacha2880.github.io/Pagina-Algoritmos" target="_blank">Página Algoritmos</a>
+                <a href="https://pacha2880.github.io/mi-primer-sitio-web" target="_blank">Mi primera página web</a>
+              </div>
+            </li>
+
+            <li>
+              <div class="project-title">Competitive Programming Scrapers</div>
+              <div class="project-meta">
+                Scripts en Python para recolectar y analizar datos de páginas web de programación competitiva.
+              </div>
+              <div class="links-inline">
+                <a href="https://github.com/pacha2880/competitive-programming-scrapers" target="_blank">Repositorio</a>
+              </div>
+            </li>
+            <li>
+              <div class="project-title">Pong – Ensamblador Win32</div>
+              <div class="project-meta">
+                Juego clásico hecho en MASM32 con interfaz gráfica en Win32.
+              </div>
+              <div class="links-inline">
+                <a href="https://github.com/pacha2880/pong" target="_blank">Repositorio</a>
+              </div>
+            </li>
+            <li>
+              <div class="project-title">Compilador Java → SSM</div>
+              <div class="project-meta">
+                Compilador en Haskell que traduce Java a código de ensamblador de SSM.
+              </div>
+              <div class="links-inline">
+                <a href="https://github.com/pacha2880/compilador-java-ssm" target="_blank">Repositorio</a>
+              </div>
+            </li>
+          </ul>
+        </section>
+
+        <section>
+          <h2>En otros lugares</h2>
+          <p class="links-inline">
+            <a href="https://github.com/pacha2880" target="_blank">GitHub</a>
+            <a href="https://codeforces.com/profile/pacha2880" target="_blank"
+              >Codeforces</a
+            >
+            <a
+              href="https://www.linkedin.com/in/rodrigo-salguero-a9899b220/"
+              target="_blank"
+            >
+              LinkedIn
+            </a>
+            <a href="mailto:pacha2881@gmail.com" target="_blank">pacha2881@gmail.com</a>
+          </p>
+        </section>
+      </main>
+
+      <footer>
+        <p>
+          La noche es larga para quien se queda despierto.
+        </p>
+      </footer>
     </div>
   </body>
 </html>
