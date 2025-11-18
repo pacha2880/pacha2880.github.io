@@ -27,15 +27,6 @@
         font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
           Roboto, sans-serif;
         color: var(--fg);
-
-        /* 🎨 Fondo degradado fucsia → azul ultramarino */
-        background: linear-gradient(
-          90deg,
-          #001b7a 0%,
-          #ff00a8 50%,
-          #001b7a 100%
-        );
-
         min-height: 100vh;
         background-attachment: fixed;
       }
@@ -110,8 +101,7 @@
         margin: 0 0 10px;
       }
 
-      .now-list,
-      .projects-list {
+      .now-list{
         list-style: none;
         padding: 0;
         margin: 0;
@@ -121,10 +111,6 @@
         margin-bottom: 6px;
       }
 
-      .projects-list li {
-        padding: 10px 0;
-        border-bottom: 1px solid var(--border);
-      }
 
       .project-title {
         font-weight: 600;
@@ -165,234 +151,755 @@
           padding-top: 48px;
         }
       }
+
+      .project-group-title {
+        margin-top: 22px;
+        margin-bottom: 6px;
+        font-size: 0.9rem;
+        text-transform: uppercase;
+        letter-spacing: 0.12em;
+        color: var(--muted);
+      }
+
+      .more-projects {
+        margin-top: 4px;
+      }
+
+      .toggle-more {
+        margin-top: 6px;
+        margin-bottom: 8px;
+        padding: 4px 10px;
+        border-radius: 6px;
+        border: 1px solid var(--border);
+        background: transparent;
+        font-size: 0.8rem;
+        cursor: pointer;
+      }
+
+      .toggle-more:hover {
+        background: rgba(0, 0, 0, 0.03);
+      }
+
+      .projects-list li {
+        padding: 10px 0;
+        border-bottom: 1px solid var(--border);
+        transition: background 0.2s ease, transform 0.2s ease;
+      }
+
+      .projects-list li:hover {
+        transform: translateY(-1px);
+      }
+
+      .rainbow-card {
+        background: linear-gradient(
+          90deg,
+          rgba(255, 0, 0, 0.22),   /* rojo */
+          rgba(255, 127, 0, 0.22), /* naranja */
+          rgba(255, 255, 0, 0.22), /* amarillo */
+          rgba(0, 255, 0, 0.22),   /* verde */
+          rgba(0, 127, 255, 0.22), /* celeste */
+          rgba(0, 0, 255, 0.22),   /* azul */
+          rgba(139, 0, 255, 0.22)  /* violeta */
+        );
+        background-size: 400% 100%;
+        animation: rainbowWave 12s ease-in-out infinite;
+        border-radius: 10px;
+        padding: 16px 14px;
+        margin-top: 18px;
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+      }
+
+      .rainbow-card:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 0 18px rgba(0, 0, 0, 0.18);
+      }
+
+      /* Animación ondulante */
+      @keyframes rainbowWave {
+        0% {
+          background-position: 0% 50%;
+        }
+        50% {
+          background-position: 100% 50%;
+        }
+        100% {
+          background-position: 0% 50%;
+        }
+      }
+
+
+
     </style>
   </head>
-  <body>
+  <body data-lang="es">
     <div class="page">
       <header>
-        <h1>Rodrigo Salguero</h1>
-        <p class="subtitle">
+        <h1 data-es="Rodrigo Salguero" data-en="Rodrigo Salguero">Rodrigo Salguero</h1>
+
+        <p class="subtitle"
+          data-es="Programador Competitivo de noche, Ingeniero de Software de día."
+          data-en="Competitive Programmer by night, Software Engineer by day.">
           Programador Competitivo de noche, Ingeniero de Software de día.
         </p>
+
+        <div style="position: absolute; top: 20px; right: 20px;">
+          <select id="lang-switch" style="padding: 4px 8px; border-radius: 6px;">
+            <option value="es">ES</option>
+            <option value="en">EN</option>
+          </select>
+        </div>
+
         <div class="header-actions">
-          <a
-            href="CV_Rodrigo_Salguero.pdf"
+          <a href="CV_Rodrigo_Salguero.pdf"
             download
             class="cv-button"
-          >
+            data-es="Ver CV (PDF)"
+            data-en="View CV (PDF)">
             Ver CV (PDF)
           </a>
         </div>
       </header>
 
+
       <main>
         <section>
-          <h2>Quién soy</h2>
-          <p>
-            Ingeniero de software y competidor de programación con experiencia en
-            integración, simulación y análisis de datos.
+          <h2
+            data-es="Quién soy"
+            data-en="Who I am"
+          >
+            Quién soy
+          </h2>
+
+          <p
+            data-es="Ingeniero de software y competidor de programación con experiencia en integración, simulación y análisis de datos."
+            data-en="Software engineer and competitive programmer with experience in integration, simulation, and data analysis."
+          >
+            Ingeniero de software y competidor de programación con experiencia en integración, simulación y análisis de datos.
           </p>
-          <p>
-            Dos veces finalista mundial de la ICPC (2022, 2024) y desarrollador con práctica
-            profesional en Volvo Group, trabajando en entornos de simulación, C++,
-            Python, Docker y Kubernetes. También tengo experiencia en procesos de
-            integración continua y despliegue (CI/CD) con Jenkins y Gradle, y en
-            desarrollo web backend con Python (Flask).
+
+          <p
+            data-es="Dos veces finalista mundial de la ICPC (2022, 2024) y desarrollador con práctica profesional en Volvo Group, trabajando en entornos de simulación, C++, Python, Docker y Kubernetes. También tengo experiencia en procesos de integración continua y despliegue (CI/CD) con Jenkins y Gradle, y en desarrollo web backend con Python (Flask)."
+            data-en="Two-time ICPC World Finalist (2022, 2024) and developer with professional practice at Volvo Group, working with simulation environments, C++, Python, Docker, and Kubernetes. I also have experience in continuous integration and deployment (CI/CD) with Jenkins and Gradle, and backend web development in Python (Flask)."
+          >
+            Dos veces finalista mundial de la ICPC (2022, 2024) y desarrollador con práctica profesional en Volvo Group, trabajando en entornos de simulación, C++, Python, Docker y Kubernetes. También tengo experiencia en procesos de integración continua y despliegue (CI/CD) con Jenkins y Gradle, y en desarrollo web backend con Python (Flask).
           </p>
-          <p>
-            Me interesa entender sistemas complejos, mejorar procesos y compartir
-            conocimiento con otros competidores y estudiantes.
+
+          <p
+            data-es="Me interesa entender sistemas complejos, mejorar procesos y compartir conocimiento con otros competidores y estudiantes."
+            data-en="I’m interested in understanding complex systems, improving processes, and sharing knowledge with competitors and students."
+          >
+            Me interesa entender sistemas complejos, mejorar procesos y compartir conocimiento con otros competidores y estudiantes.
           </p>
         </section>
 
+
         <section>
-          <h2>Ahora</h2>
+          <h2
+            data-es="Ahora"
+            data-en="Now"
+          >
+            Ahora
+          </h2>
+
           <ul class="now-list">
-            <li>• Trabajando en Volvo Group, Suecia, en simulación y validación de software embebido.</li>
-            <li>• Recientemente he finalizado mi tesis sobre estrategias de entrenamiento en programación competitiva.</li>
-            <li>• Manteniendo proyectos personales de datos, herramientas y docencia para la comunidad ICPC en Bolivia.</li>
-          </ul>
-        </section>
-
-        <section>
-          <h2>Proyectos</h2>
-          <ul class="projects-list">
-            <li>
-              <div class="project-title">
-                CSES Pacha Tools – Extensión para CSES
-              </div>
-              <div class="project-meta">
-                Añade utilidades para ordenar y filtrar problemas en
-                <a href="https://cses.fi/problemset/" target="_blank">CSES</a>.
-              </div>
-              <div class="links-inline">
-                <a
-                  href="https://github.com/pacha2880/cses-pacha-tools"
-                  target="_blank"
-                  >Repositorio</a
-                >
-              </div>
-            </li>
-
-            <li>
-              <div class="project-title">ICPC LATAM – Datos y análisis</div>
-              <div class="project-meta">
-                Dataset y scripts para explorar problemas y tendencias en
-                competencias ICPC regionales.
-              </div>
-              <div class="links-inline">
-                <a
-                  href="https://github.com/pacha2880/ICPC-latam-datos"
-                  target="_blank"
-                  >Repositorio</a
-                >
-              </div>
-            </li>
-
-            <li>
-              <div class="project-title">ICPC Consejos y Encuestas</div>
-              <div class="project-meta">
-                Análisis de 112 estrategias de entrenamiento validadas por
-                competidores expertos, parte de mi tesis de grado.
-              </div>
-              <div class="links-inline">
-                <a
-                  href="https://github.com/pacha2880/icpc-consejos-encuestas"
-                  target="_blank"
-                  >Repositorio</a
-                >
-              </div>
-            </li>
-
-            <li>
-              <div class="project-title">
-                Los Anticuchos – Algoritmos para competencias
-              </div>
-              <div class="project-meta">
-                Implementaciones de algoritmos y plantillas usadas en
-                competencias de programación.
-              </div>
-              <div class="links-inline">
-                <a
-                  href="https://github.com/pacha2880/los-anticuchos"
-                  target="_blank"
-                  >Repositorio</a
-                >
-              </div>
-            </li>
-            <li>
-              <div class="project-title">
-                Competitive Programming Codes
-              </div>
-              <div class="project-meta">
-                Colección de códigos y soluciones a problemas de
-                programación competitiva.
-              </div>
-              <div class="links-inline">
-                <a
-                  href="https://github.com/pacha2880/competitive_programming_codes"
-                  target="_blank"
-                  >Repositorio</a
-                >
-              </div>
-            </li>
-
-            <li>
-              <div class="project-title">Hambre – backend</div>
-              <div class="project-meta">
-                Servicio sencillo en backend para experimentos y pequeñas
-                aplicaciones.
-              </div>
-              <div class="links-inline">
-                <a
-                  href="https://github.com/pacha2880/hambre-back"
-                  target="_blank"
-                  >Repositorio</a
-                >
-              </div>
-            </li>
-
-            <li style="
-              background: linear-gradient(
-                90deg,
-                rgba(255, 0, 150, 0.15),
-                rgba(255, 255, 0, 0.15),
-                rgba(0, 255, 255, 0.15),
-                rgba(0, 150, 255, 0.15),
-                rgba(255, 0, 150, 0.15)
-              );
-              border-radius: 10px;
-              padding: 14px 12px;
-              transition: all 0.3s ease;
-            ">
-              <div class="project-title">Prototipos y juegos web</div>
-              <div class="project-meta">
-                Prototipos para jugar un rato y probar ideas.  
-                <em style="font-size: 0.85rem; color: #444;">Click para jugar!!! 🎮</em>
-              </div>
-              <div class="links-inline">
-                <a href="https://pacha2880.github.io/space-challenge" target="_blank">Space Challenge</a>
-                <a href="https://pacha2880.github.io/typing-mario" target="_blank">Typing Mario</a>
-                <a href="https://pacha2880.github.io/snake" target="_blank">Snake</a>
-                <a href="https://pacha2880.github.io/paint" target="_blank">Paint</a>
-                <a href="https://pacha2880.github.io/Pagina-Algoritmos" target="_blank">Página Algoritmos</a>
-                <a href="https://pacha2880.github.io/mi-primer-sitio-web" target="_blank">Mi primera página web</a>
-              </div>
-            </li>
-
-            <li>
-              <div class="project-title">Competitive Programming Scrapers</div>
-              <div class="project-meta">
-                Scripts en Python para recolectar y analizar datos de páginas web de programación competitiva.
-              </div>
-              <div class="links-inline">
-                <a href="https://github.com/pacha2880/competitive-programming-scrapers" target="_blank">Repositorio</a>
-              </div>
-            </li>
-            <li>
-              <div class="project-title">Pong – Ensamblador Win32</div>
-              <div class="project-meta">
-                Juego clásico hecho en MASM32 con interfaz gráfica en Win32.
-              </div>
-              <div class="links-inline">
-                <a href="https://github.com/pacha2880/pong" target="_blank">Repositorio</a>
-              </div>
-            </li>
-            <li>
-              <div class="project-title">Compilador Java → SSM</div>
-              <div class="project-meta">
-                Compilador en Haskell que traduce Java a código de ensamblador de SSM.
-              </div>
-              <div class="links-inline">
-                <a href="https://github.com/pacha2880/compilador-java-ssm" target="_blank">Repositorio</a>
-              </div>
-            </li>
-          </ul>
-        </section>
-
-        <section>
-          <h2>En otros lugares</h2>
-          <p class="links-inline">
-            <a href="https://github.com/pacha2880" target="_blank">GitHub</a>
-            <a href="https://codeforces.com/profile/pacha2880" target="_blank"
-              >Codeforces</a
+            <li
+              data-es="• Trabajando en Volvo Group, Suecia, en simulación y validación de software embebido."
+              data-en="• Working at Volvo Group, Sweden, on simulation and embedded software validation."
             >
+              • Trabajando en Volvo Group, Suecia, en simulación y validación de software embebido.
+            </li>
+
+            <li
+              data-es="• Recientemente he finalizado mi tesis sobre estrategias de entrenamiento en programación competitiva."
+              data-en="• Recently finished my thesis on training strategies for competitive programming."
+            >
+              • Recientemente he finalizado mi tesis sobre estrategias de entrenamiento en programación competitiva.
+            </li>
+
+            <li
+              data-es="• Manteniendo proyectos personales de datos, herramientas y docencia para la comunidad ICPC en Bolivia."
+              data-en="• Maintaining personal projects on data, tools, and teaching for the ICPC community in Bolivia."
+            >
+              • Manteniendo proyectos personales de datos, herramientas y docencia para la comunidad ICPC en Bolivia.
+            </li>
+          </ul>
+        </section>
+
+        <section>
+          <h2
+            data-es="Proyectos"
+            data-en="Projects"
+          >
+            Proyectos
+          </h2>
+            <!-- === ICPC & Competitive Programming === -->
+            <h3
+              class="project-group-title"
+              data-es="ICPC & Programación Competitiva"
+              data-en="ICPC & Competitive Programming"
+            >
+              ICPC & Programación Competitiva
+            </h3>
+
+            <ul class="projects-list">
+
+              <li>
+                <div
+                  class="project-title"
+                  data-es="ICPC LATAM – Datos y análisis"
+                  data-en="ICPC LATAM – Data & Analysis"
+                >
+                  ICPC LATAM – Datos y análisis
+                </div>
+
+                <div
+                  class="project-meta"
+                  data-es="Dataset y scripts para explorar problemas y tendencias en competencias ICPC regionales."
+                  data-en="Dataset and scripts for exploring problems and trends in regional ICPC contests."
+                >
+                  Dataset y scripts para explorar problemas y tendencias en competencias ICPC regionales.
+                </div>
+
+                <div class="links-inline">
+                  <a href="https://github.com/pacha2880/ICPC-latam-datos" target="_blank" data-es="Repositorio" data-en="Repository">Repositorio</a>
+                </div>
+              </li>
+
+              <li>
+                <div
+                  class="project-title"
+                  data-es="CSES Pacha Tools – Extensión para CSES"
+                  data-en="CSES Pacha Tools – Extension for CSES"
+                >
+                  CSES Pacha Tools – Extensión para CSES
+                </div>
+
+                <div
+                  class="project-meta"
+                  data-es="Añade utilidades para ordenar y filtrar problemas en CSES."
+                  data-en="Adds tools to sort and filter problems in CSES."
+                >
+                  Añade utilidades para ordenar y filtrar problemas en CSES.
+                </div>
+
+                <div class="links-inline">
+                  <a href="https://github.com/pacha2880/cses-pacha-tools" target="_blank" data-es="Repositorio" data-en="Repository">Repositorio</a>
+                </div>
+              </li>
+
+            </ul>
+
+            <!-- PROYECTOS OCULTOS (Ver más) -->
+            <div id="more-icpc" class="more-projects" style="display: none;">
+              <ul class="projects-list">
+
+                <li>
+                  <div
+                    class="project-title"
+                    data-es="ICPC Consejos y Encuestas"
+                    data-en="ICPC Tips & Surveys"
+                  >
+                    ICPC Consejos y Encuestas
+                  </div>
+
+                  <div
+                    class="project-meta"
+                    data-es="Análisis de 112 estrategias de entrenamiento validadas por competidores expertos."
+                    data-en="Analysis of 112 training strategies validated by expert competitors."
+                  >
+                    Análisis de 112 estrategias de entrenamiento validadas por competidores expertos.
+                  </div>
+
+                  <div class="links-inline">
+                    <a href="https://github.com/pacha2880/icpc-consejos-encuestas" target="_blank" data-es="Repositorio" data-en="Repository">Repositorio</a>
+                  </div>
+                </li>
+
+                <li>
+                  <div
+                    class="project-title"
+                    data-es="Los Anticuchos – Algoritmos para competencias"
+                    data-en="Los Anticuchos – Algorithms for Contests"
+                  >
+                    Los Anticuchos – Algoritmos para competencias
+                  </div>
+
+                  <div
+                    class="project-meta"
+                    data-es="Implementaciones de algoritmos y plantillas usadas en competencias de programación."
+                    data-en="Implementations of algorithms and templates used in programming contests."
+                  >
+                    Implementaciones de algoritmos y plantillas usadas en competencias de programación.
+                  </div>
+
+                  <div class="links-inline">
+                    <a href="https://github.com/pacha2880/los-anticuchos" target="_blank" data-es="Repositorio" data-en="Repository">Repositorio</a>
+                  </div>
+                </li>
+
+                <li>
+                  <div
+                    class="project-title"
+                    data-es="Competitive Programming Scrapers"
+                    data-en="Competitive Programming Scrapers"
+                  >
+                    Competitive Programming Scrapers
+                  </div>
+
+                  <div
+                    class="project-meta"
+                    data-es="Scripts en Python para recolectar datos de páginas de programación competitiva."
+                    data-en="Python scripts to scrape data from competitive programming websites."
+                  >
+                    Scripts en Python para recolectar datos de páginas de programación competitiva.
+                  </div>
+
+                  <div class="links-inline">
+                    <a href="https://github.com/pacha2880/competitive-programming-scrapers" target="_blank" data-es="Repositorio" data-en="Repository">Repositorio</a>
+                  </div>
+                </li>
+
+                <li>
+                  <div
+                    class="project-title"
+                    data-es="Competitive Programming Codes"
+                    data-en="Competitive Programming Codes"
+                  >
+                    Competitive Programming Codes
+                  </div>
+
+                  <div
+                    class="project-meta"
+                    data-es="Colección de soluciones y códigos para problemas de programación competitiva."
+                    data-en="Collection of solutions and template code for competitive programming tasks."
+                  >
+                    Colección de soluciones y códigos para problemas de programación competitiva.
+                  </div>
+
+                  <div class="links-inline">
+                    <a href="https://github.com/pacha2880/competitive_programming_codes" target="_blank" data-es="Repositorio" data-en="Repository">Repositorio</a>
+                  </div>
+                </li>
+
+              </ul>
+            </div>
+
+            <button
+              class="toggle-more"
+              data-target="more-icpc"
+              data-es="Ver más"
+              data-en="Show more"
+            >
+              Ver más
+            </button>
+
+
+          <div class="rainbow-card">
+
+            <div
+              class="project-title"
+              style="font-size: 1.1rem;"
+              data-es="Prototipos y juegos web"
+              data-en="Web Prototypes & Games"
+            >
+              Prototipos y juegos web
+            </div>
+
+            <div
+              class="project-meta"
+              data-es="Prototipos simples para jugar y probar ideas."
+              data-en="Simple prototypes built to play and try ideas."
+            >
+              Prototipos simples para jugar y probar ideas.
+              <em
+                style="font-size: 0.85rem; color: #444;"
+                data-es="Haz clic para jugar 🎮"
+                data-en="Click to play 🎮"
+              >
+                Haz clic para jugar 🎮
+              </em>
+            </div>
+
+            <div class="links-inline" style="margin-top: 6px;">
+
+              <a
+                href="https://pacha2880.github.io/space-challenge"
+                target="_blank"
+                data-es="Space Challenge"
+                data-en="Space Challenge"
+              >
+                Space Challenge
+              </a>
+
+              <a
+                href="https://pacha2880.github.io/typing-mario"
+                target="_blank"
+                data-es="Typing Mario"
+                data-en="Typing Mario"
+              >
+                Typing Mario
+              </a>
+
+              <a
+                href="https://pacha2880.github.io/snake"
+                target="_blank"
+                data-es="Snake"
+                data-en="Snake"
+              >
+                Snake
+              </a>
+
+              <a
+                href="https://pacha2880.github.io/paint"
+                target="_blank"
+                data-es="Paint"
+                data-en="Paint"
+              >
+                Paint
+              </a>
+
+              <a
+                href="https://pacha2880.github.io/Pagina-Algoritmos"
+                target="_blank"
+                data-es="Página Algoritmos"
+                data-en="Algorithms Page"
+              >
+                Página Algoritmos
+              </a>
+
+              <a
+                href="https://pacha2880.github.io/mi-primer-sitio-web"
+                target="_blank"
+                data-es="Mi primera página web"
+                data-en="My first webpage"
+              >
+                Mi primera página web
+              </a>
+
+            </div>
+
+          </div>
+
+
+          <h3
+            class="project-group-title"
+            data-es="Misceláneo"
+            data-en="Miscellaneous"
+          >
+            Misceláneo
+          </h3>
+
+          <ul class="projects-list">
+
+            <!-- Compilador -->
+            <li>
+              <div
+                class="project-title"
+                data-es="Compilador Java → SSM"
+                data-en="Java → SSM Compiler"
+              >
+                Compilador Java → SSM
+              </div>
+
+              <div
+                class="project-meta"
+                data-es="Compilador en Haskell que traduce Java a código de ensamblador SSM."
+                data-en="Compiler written in Haskell that translates Java into SSM assembly."
+              >
+                Compilador en Haskell que traduce Java a código de ensamblador SSM.
+              </div>
+
+              <div class="links-inline">
+                <a href="https://github.com/pacha2880/compilador-java-ssm" target="_blank" data-es="Repositorio" data-en="Repository">Repositorio</a>
+              </div>
+            </li>
+
+            <!-- Pong -->
+            <li>
+              <div
+                class="project-title"
+                data-es="Pong – Ensamblador Win32"
+                data-en="Pong – Win32 Assembly"
+              >
+                Pong – Ensamblador Win32
+              </div>
+
+              <div
+                class="project-meta"
+                data-es="Juego clásico implementado en MASM32 con interfaz gráfica Win32."
+                data-en="Classic Pong implemented in MASM32 with a Win32 graphical interface."
+              >
+                Juego clásico implementado en MASM32 con interfaz gráfica Win32.
+              </div>
+
+              <div class="links-inline">
+                <a href="https://github.com/pacha2880/pong" target="_blank" data-es="Repositorio" data-en="Repository">Repositorio</a>
+              </div>
+            </li>
+
+          </ul>
+
+          <!-- PROYECTOS OCULTOS -->
+          <div id="more-backend" class="more-projects" style="display: none;">
+            <ul class="projects-list">
+
+              <!-- Hambre backend -->
+              <li>
+                <div
+                  class="project-title"
+                  data-es="Hambre – backend"
+                  data-en="Hambre – backend"
+                >
+                  Hambre – backend
+                </div>
+
+                <div
+                  class="project-meta"
+                  data-es="Servicio backend sencillo en Python/Flask para experimentos."
+                  data-en="Simple Python/Flask backend service for small experiments."
+                >
+                  Servicio backend sencillo en Python/Flask para experimentos.
+                </div>
+
+                <div class="links-inline">
+                  <a href="https://github.com/pacha2880/hambre-back" target="_blank" data-es="Repositorio" data-en="Repository">Repositorio</a>
+                </div>
+              </li>
+
+              <!-- Snake AI -->
+              <li>
+                <div
+                  class="project-title"
+                  data-es="Snake AI – Python"
+                  data-en="Snake AI – Python"
+                >
+                  Snake AI – Python
+                </div>
+
+                <div
+                  class="project-meta"
+                  data-es="Versión de Snake en Python con diseño orientado a objetos y una red neuronal simple."
+                  data-en="Object-oriented Python Snake with a simple neural network agent."
+                >
+                  Versión de Snake en Python con diseño orientado a objetos y una red neuronal simple.
+                </div>
+
+                <div class="links-inline">
+                  <a href="https://github.com/pacha2880/snake-ai" target="_blank" data-es="Repositorio" data-en="Repository">Repositorio</a>
+                </div>
+              </li>
+
+              <!-- Taller Base de Datos -->
+              <li>
+                <div
+                  class="project-title"
+                  data-es="Taller Base de Datos 2019 – UMSS"
+                  data-en="Database Workshop 2019 – UMSS"
+                >
+                  Taller Base de Datos 2019 – UMSS
+                </div>
+
+                <div
+                  class="project-meta"
+                  data-es="Proyecto académico en PostgreSQL/PLpgSQL para gestionar usuarios, materias y calificaciones."
+                  data-en="PostgreSQL/PLpgSQL academic system for managing users, subjects, and grades."
+                >
+                  Proyecto académico en PostgreSQL/PLpgSQL para gestionar usuarios, materias y calificaciones.
+                </div>
+
+                <div class="links-inline">
+                  <a href="https://github.com/pacha2880/taller-base-de-datos-2019" target="_blank" data-es="Repositorio" data-en="Repository">Repositorio</a>
+                </div>
+              </li>
+
+            </ul>
+          </div>
+
+          <button
+            class="toggle-more"
+            data-target="more-backend"
+            data-es="Ver más"
+            data-en="Show more"
+          >
+            Ver más
+          </button>
+
+
+
+        <section>
+          <h2
+            data-es="Contáctame"
+            data-en="Find me on"
+          >
+            Contáctame
+          </h2>
+
+          <p class="links-inline">
+
+            <a
+              href="https://github.com/pacha2880"
+              target="_blank"
+              data-es="GitHub"
+              data-en="GitHub"
+            >
+              GitHub
+            </a>
+
+            <a
+              href="https://codeforces.com/profile/pacha2880"
+              target="_blank"
+              data-es="Codeforces"
+              data-en="Codeforces"
+            >
+              Codeforces
+            </a>
+
             <a
               href="https://www.linkedin.com/in/rodrigo-salguero-a9899b220/"
               target="_blank"
+              data-es="LinkedIn"
+              data-en="LinkedIn"
             >
               LinkedIn
             </a>
-            <a href="mailto:pacha2881@gmail.com" target="_blank">pacha2881@gmail.com</a>
+
+            <a
+              href="mailto:pacha2881@gmail.com"
+              target="_blank"
+              data-es="pacha2881@gmail.com"
+              data-en="pacha2881@gmail.com"
+            >
+              Email
+            </a>
+            <a
+              href="https://t.me/pacha2880"
+              target="_blank"
+              data-es="Telegram"
+              data-en="Telegram"
+            >
+              Telegram
+            </a>
+
           </p>
         </section>
-      </main>
 
-      <footer>
-        <p>
-          La noche es larga para quien se queda despierto.
-        </p>
-      </footer>
+        <footer>
+          <p
+            data-es="La noche es larga para quien se queda despierto."
+            data-en="The night is long for those who stay awake."
+          >
+            La noche es larga para quien se queda despierto.
+          </p>
+        </footer>
+
     </div>
+
   </body>
+  <script>
+    (function () {
+      const STORAGE_LANG_KEY = "pacha_lang";
+      const STORAGE_MORE_PREFIX = "pacha_more_";
+
+      function aplicarIdioma(lang) {
+        document.body.setAttribute("data-lang", lang);
+
+        const langSwitch = document.getElementById("lang-switch");
+        if (langSwitch && langSwitch.value !== lang) {
+          langSwitch.value = lang;
+        }
+
+        document.querySelectorAll("[data-es][data-en]").forEach(el => {
+          // Solo cambiamos elementos sin hijos para no romper estructuras internas
+          if (el.children.length === 0) {
+            const val = el.getAttribute("data-" + lang);
+            if (val !== null) {
+              el.textContent = val;
+            }
+          }
+        });
+      }
+
+      function setMoreState(button, isOpen) {
+        const targetId = button.getAttribute("data-target");
+        const target = document.getElementById(targetId);
+        if (!target) return;
+
+        target.style.display = isOpen ? "block" : "none";
+
+        if (isOpen) {
+          button.setAttribute("data-es", "Ver menos");
+          button.setAttribute("data-en", "Show less");
+        } else {
+          button.setAttribute("data-es", "Ver más");
+          button.setAttribute("data-en", "Show more");
+        }
+
+        const lang = document.body.getAttribute("data-lang") || "es";
+        const label = button.getAttribute("data-" + lang);
+        if (label) {
+          button.textContent = label;
+        }
+
+        if (targetId) {
+          localStorage.setItem(STORAGE_MORE_PREFIX + targetId, isOpen ? "1" : "0");
+        }
+      }
+
+      document.addEventListener("DOMContentLoaded", function () {
+        // Idioma inicial desde localStorage o 'es'
+        let lang = localStorage.getItem(STORAGE_LANG_KEY) || "es";
+        aplicarIdioma(lang);
+
+        // Selector de idioma
+        const langSwitch = document.getElementById("lang-switch");
+        if (langSwitch) {
+          langSwitch.value = lang;
+          langSwitch.addEventListener("change", function () {
+            const nuevo = this.value || "es";
+            localStorage.setItem(STORAGE_LANG_KEY, nuevo);
+            aplicarIdioma(nuevo);
+          });
+        }
+
+        // Botones "Ver más / Ver menos"
+        document.querySelectorAll(".toggle-more").forEach(button => {
+          const targetId = button.getAttribute("data-target");
+          const saved = targetId
+            ? localStorage.getItem(STORAGE_MORE_PREFIX + targetId)
+            : null;
+
+          const initialOpen = saved === "1";
+          setMoreState(button, initialOpen);
+
+          button.addEventListener("click", function () {
+            const current = localStorage.getItem(STORAGE_MORE_PREFIX + targetId) === "1";
+            setMoreState(button, !current);
+          });
+        });
+      });
+    })();
+  </script>
+
+
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+
+      const fondos = [
+        // Fondo original fucsia ↔ azul
+        "linear-gradient(90deg, #001b7a 0%, #ff00a8 50%, #001b7a 100%)",
+
+        // Cian ↔ dorado ↔ cian
+        "linear-gradient(90deg, #00eaff 0%, #ffd700 50%, #00eaff 100%)",
+
+        // Variantes extra (opcional)
+        "linear-gradient(90deg, #6a00ff 0%, #ff008c 50%, #6a00ff 100%)",
+        "linear-gradient(90deg, #0099ff 0%, #00ff99 50%, #0099ff 100%)"
+      ];
+
+      const elegido = fondos[Math.floor(Math.random() * fondos.length)];
+      document.body.style.background = elegido;
+      document.body.style.backgroundAttachment = "fixed";
+    });
+  </script>
+
 </html>
