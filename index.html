@@ -2,7 +2,8 @@
 <html lang="es">
   <head>
     <meta charset="utf-8" />
-    <title>Rodrigo Salguero – pacha2880</title>
+    <title>Rodrigo Salguero ' pacha2880</title>
+    <link rel="icon" type="image/x-icon" href="favicon.ico">
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta
       name="description"
@@ -846,7 +847,14 @@
 
       document.addEventListener("DOMContentLoaded", function () {
         // Idioma inicial desde localStorage o 'es'
-        let lang = localStorage.getItem(STORAGE_LANG_KEY) || "es";
+        let lang = localStorage.getItem(STORAGE_LANG_KEY);
+         // Si no hay preferencia guardada → detectamos desde el navegador
+        if (!lang) {
+          const browser = (navigator.language || navigator.userLanguage || "").toLowerCase();
+          // 👉 Español solo si empieza con "es"
+          lang = browser.startsWith("es") ? "es" : "en";
+        }
+
         aplicarIdioma(lang);
 
         // Selector de idioma
