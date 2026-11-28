@@ -280,6 +280,10 @@
     .hero .tagline { margin-bottom: 1.4rem; }
     .hero { padding-bottom: .5rem; }
     @media (max-width: 34rem) { .contact { grid-template-columns: 1fr 1fr; } }
+    .edu { margin-bottom: 1.5rem; }
+    .thesis { margin: .5rem 0 0; padding-left: .9rem; border-left: 3px solid var(--accent); }
+    .thesis cite { font-style: italic; font-size: 1.05rem; line-height: 1.5; color: var(--ink); }
+    .jobs.edu > li { grid-template-columns: 1fr; padding-top: 0; }
 
   </style>
 </head>
@@ -438,7 +442,15 @@
 
     <section id="formacion" aria-labelledby="h-edu">
       <h2 id="h-edu"><span lang="es">Formación y herramientas</span><span lang="en">Education and tools</span></h2>
-      <p><span lang="es"><strong>Ingeniería Informática</strong>, Universidad Mayor de San Simón (2025). Tesis con la máxima calificación: estrategias y herramientas para preparar equipos de competencias universitarias de programación.</span><span lang="en"><strong>B.S. in Informatics Engineering</strong>, Universidad Mayor de San Simón (2025). Thesis with highest honors: strategies and tools for preparing teams for university programming contests.</span></p>
+      <ol class="jobs edu">
+        <li>
+          <div>
+            <h3><span lang="es">Ingeniería Informática</span><span lang="en">B.S. in Informatics Engineering</span><span class="sr">, </span><span class="co">Universidad Mayor de San Simón</span></h3>
+            <p class="where"><span lang="es">Tesis con la máxima calificación</span><span lang="en">Thesis, highest honors (maximum grade)</span></p>
+            <p class="thesis"><cite><span lang="es">Estrategias y herramientas para preparar equipos de competencias universitarias de programación</span><span lang="en">Strategies and Tools for Preparing Teams for University Programming Competitions</span></cite></p>
+          </div>
+        </li>
+      </ol>
       <dl class="skills">
         <dt><span lang="es">Lenguajes</span><span lang="en">Languages</span></dt><dd>Python, TypeScript, JavaScript, SQL, C++, C#</dd>
         <dt>Web</dt><dd>FastAPI, Flask, Angular, Firebase, PostgreSQL, MongoDB, REST, OAuth, webhooks</dd>
