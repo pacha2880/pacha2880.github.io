@@ -1,918 +1,382 @@
 <!doctype html>
-<html lang="es">
-  <head>
-    <meta charset="utf-8" />
-    <title>Rodrigo Salguero ' pacha2880</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="description" content="Personal website of Rodrigo Salguero (pacha2880): software engineer, ICPC World Finalist, and developer of tools, data projects, and competitive programming resources." />
-
-    <!-- OPEN GRAPH -->
-    <meta property="og:title" content="Rodrigo Salguero ' pacha2880" />
-    <meta property="og:description" content="ICPC Finalist and software engineer experienced in C++, Python, simulation and CI/CD. Personal Portfolio" />
-    <meta property="og:image" content="https://pacha2880.github.io/hackerman.jpg" />
-    <meta property="og:url" content="https://pacha2880.github.io/" />
-    <meta property="og:type" content="website" />
-    <link rel="icon" type="image/x-icon" href="favicon.ico">
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <style>
-      :root {
-        --bg: #f5f5f5;
-        --fg: #111111;
-        --muted: #555555;
-        --accent: #222222;
-        --border: #dddddd;
-      }
-
-      * {
-        box-sizing: border-box;
-      }
-
-      body {
-        margin: 0;
-        padding: 0;
-        font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
-          Roboto, sans-serif;
-        color: var(--fg);
-        min-height: 100vh;
-        background-attachment: fixed;
-      }
-
-      .page {
-        max-width: 780px;
-        margin: 0 auto;
-        padding: 32px 16px 40px;
-        background: rgba(255, 255, 255, 0.85);
-        border-radius: 12px;
-        backdrop-filter: blur(5px);
-        box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
-      }
-
-      header {
-        margin-bottom: 28px;
-        border-bottom: 1px solid var(--border);
-        padding-bottom: 18px;
-      }
-
-      h1 {
-        font-size: 2rem;
-        margin: 0 0 4px;
-        letter-spacing: 0.03em;
-      }
-
-      .subtitle {
-        margin: 0 0 12px;
-        font-size: 0.95rem;
-        color: var(--muted);
-      }
-
-      .header-actions {
-        margin-top: 4px;
-      }
-
-      .cv-button {
-        display: inline-block;
-        margin-top: 4px;
-        padding: 8px 16px;
-        border: 1px solid #000;
-        border-radius: 8px;
-        text-decoration: none;
-        color: #000;
-        background: #fff3;
-        font-size: 0.9rem;
-      }
-
-      .cv-button:hover {
-        background: #ffffffaa;
-      }
-
-      main {
-        font-size: 0.98rem;
-        line-height: 1.6;
-      }
-
-      section {
-        margin-bottom: 26px;
-      }
-
-      section h2 {
-        font-size: 1rem;
-        text-transform: uppercase;
-        letter-spacing: 0.08em;
-        font-weight: 600;
-        margin: 0 0 10px;
-        color: var(--accent);
-      }
-
-      p {
-        margin: 0 0 10px;
-      }
-
-      .now-list{
-        list-style: none;
-        padding: 0;
-        margin: 0;
-      }
-
-      .now-list li {
-        margin-bottom: 6px;
-      }
-
-
-      .project-title {
-        font-weight: 600;
-        margin-bottom: 2px;
-      }
-
-      .project-meta {
-        font-size: 0.85rem;
-        color: var(--muted);
-        margin-bottom: 4px;
-      }
-
-      a {
-        color: inherit;
-        text-decoration: none;
-        border-bottom: 1px solid rgba(0, 0, 0, 0.2);
-      }
-
-      a:hover {
-        border-bottom-color: rgba(0, 0, 0, 0.7);
-      }
-
-      .links-inline a {
-        margin-right: 12px;
-        white-space: nowrap;
-      }
-
-      footer {
-        margin-top: 24px;
-        padding-top: 16px;
-        border-top: 1px solid var(--border);
-        font-size: 0.85rem;
-        color: var(--muted);
-      }
-
-      @media (min-width: 768px) {
-        .page {
-          padding-top: 48px;
-        }
-      }
-
-      .project-group-title {
-        margin-top: 22px;
-        margin-bottom: 6px;
-        font-size: 0.9rem;
-        text-transform: uppercase;
-        letter-spacing: 0.12em;
-        color: var(--muted);
-      }
-
-      .more-projects {
-        margin-top: 4px;
-      }
-
-      .toggle-more {
-        margin-top: 6px;
-        margin-bottom: 8px;
-        padding: 4px 10px;
-        border-radius: 6px;
-        border: 1px solid var(--border);
-        background: transparent;
-        font-size: 0.8rem;
-        cursor: pointer;
-      }
-
-      .toggle-more:hover {
-        background: rgba(0, 0, 0, 0.03);
-      }
-
-      .projects-list li {
-        padding: 10px 0;
-        border-bottom: 1px solid var(--border);
-        transition: background 0.2s ease, transform 0.2s ease;
-      }
-
-      .projects-list li:hover {
-        transform: translateY(-1px);
-      }
-
-      .rainbow-card {
-        background: linear-gradient(
-          90deg,
-          rgba(255, 0, 0, 0.22),   /* rojo */
-          rgba(255, 127, 0, 0.22), /* naranja */
-          rgba(255, 255, 0, 0.22), /* amarillo */
-          rgba(0, 255, 0, 0.22),   /* verde */
-          rgba(0, 127, 255, 0.22), /* celeste */
-          rgba(0, 0, 255, 0.22),   /* azul */
-          rgba(139, 0, 255, 0.22)  /* violeta */
-        );
-        background-size: 400% 100%;
-        animation: rainbowWave 12s ease-in-out infinite;
-        border-radius: 10px;
-        padding: 16px 14px;
-        margin-top: 18px;
-        transition: transform 0.3s ease, box-shadow 0.3s ease;
-      }
-
-      .rainbow-card:hover {
-        transform: translateY(-2px);
-        box-shadow: 0 0 18px rgba(0, 0, 0, 0.18);
-      }
-
-      /* Animación ondulante */
-      @keyframes rainbowWave {
-        0% {
-          background-position: 0% 50%;
-        }
-        50% {
-          background-position: 100% 50%;
-        }
-        100% {
-          background-position: 0% 50%;
-        }
-      }
-
-
-
-    </style>
-  </head>
-  <body data-lang="es">
-    <div class="page">
-      <header>
-        <h1 data-es="Rodrigo Salguero" data-en="Rodrigo Salguero">Rodrigo Salguero</h1>
-
-        <p class="subtitle"
-          data-es="Programador Competitivo de noche, Ingeniero de Software de día."
-          data-en="Competitive Programmer at night, Software Engineer during the day.">
-          Programador Competitivo de noche, Ingeniero de Software de día.
-        </p>
-
-        <div style="position: absolute; top: 20px; right: 20px;">
-          <select id="lang-switch" style="padding: 4px 8px; border-radius: 6px;">
-            <option value="es">ES</option>
-            <option value="en">EN</option>
-          </select>
-        </div>
-
-        <div class="header-actions">
-          <a href="CV_Rodrigo_Salguero.pdf"
-            class="cv-button"
-            data-es="Ver CV (PDF)"
-            data-en="View CV (PDF)">
-            Ver CV (PDF)
-          </a>
-        </div>
-      </header>
-
-
-      <main>
-        <section>
-          <h2
-            data-es="Quién soy"
-            data-en="Who I am"
-          >
-            Quién soy
-          </h2>
-
-          <p
-            data-es="Ingeniero de software y competidor de programación con experiencia en integración, simulación y análisis de datos."
-            data-en="Software engineer and competitive programmer with experience in integration, simulation, and data analysis."
-          >
-            Ingeniero de software y competidor de programación con experiencia en integración, simulación y análisis de datos.
-          </p>
-
-          <p
-            data-es="Dos veces finalista mundial de la ICPC (2022, 2024) y desarrollador con práctica profesional en Volvo Group, trabajando en entornos de simulación, C++, Python, Docker y Kubernetes. También tengo experiencia en procesos de integración continua y despliegue (CI/CD) con Jenkins y Gradle, y en desarrollo web backend con Python (Flask)."
-            data-en="Two-time ICPC World Finalist (2022, 2024) and developer with professional practice at Volvo Group, working with simulation environments, C++, Python, Docker, and Kubernetes. I also have experience in continuous integration and deployment (CI/CD) with Jenkins and Gradle, and backend web development in Python (Flask)."
-          >
-            Dos veces finalista mundial de la ICPC (2022, 2024) y desarrollador con práctica profesional en Volvo Group, trabajando en entornos de simulación, C++, Python, Docker y Kubernetes. También tengo experiencia en procesos de integración continua y despliegue (CI/CD) con Jenkins y Gradle, y en desarrollo web backend con Python (Flask).
-          </p>
-
-          <p
-            data-es="Me interesa entender sistemas complejos, mejorar procesos y compartir conocimiento con otros competidores y estudiantes."
-            data-en="I’m interested in understanding complex systems, improving processes, and sharing knowledge with competitors and students."
-          >
-            Me interesa entender sistemas complejos, mejorar procesos y compartir conocimiento con otros competidores y estudiantes.
-          </p>
-        </section>
-
-
-        <section>
-          <h2
-            data-es="Ahora"
-            data-en="Now"
-          >
-            Ahora
-          </h2>
-
-          <ul class="now-list">
-            <li
-              data-es="• Trabajando en Volvo Group, Suecia, en simulación y validación de software embebido."
-              data-en="• Working at Volvo Group, Sweden, on simulation and embedded software validation."
-            >
-              • Trabajando en Volvo Group, Suecia, en simulación y validación de software embebido.
-            </li>
-
-            <li
-              data-es="• Recientemente he finalizado mi tesis sobre estrategias de entrenamiento en programación competitiva."
-              data-en="• Recently finished my thesis on training strategies for competitive programming."
-            >
-              • Recientemente he finalizado mi tesis sobre estrategias de entrenamiento en programación competitiva.
-            </li>
-
-            <li
-              data-es="• Manteniendo proyectos personales de datos, herramientas y docencia para la comunidad ICPC en Bolivia."
-              data-en="• Maintaining personal projects on data, tools, and teaching for the ICPC community in Bolivia."
-            >
-              • Manteniendo proyectos personales de datos, herramientas y docencia para la comunidad ICPC en Bolivia.
-            </li>
-          </ul>
-        </section>
-
-        <section>
-          <h2
-            data-es="Proyectos"
-            data-en="Projects"
-          >
-            Proyectos
-          </h2>
-            <!-- === ICPC & Competitive Programming === -->
-            <h3
-              class="project-group-title"
-              data-es="ICPC & Programación Competitiva"
-              data-en="ICPC & Competitive Programming"
-            >
-              ICPC & Programación Competitiva
-            </h3>
-
-            <ul class="projects-list">
-
-              <li>
-                <div
-                  class="project-title"
-                  data-es="ICPC LATAM – Datos y análisis"
-                  data-en="ICPC LATAM – Data & Analysis"
-                >
-                  ICPC LATAM – Datos y análisis
-                </div>
-
-                <div
-                  class="project-meta"
-                  data-es="Dataset y scripts para explorar problemas y tendencias en competencias ICPC regionales."
-                  data-en="Dataset and scripts for exploring problems and trends in regional ICPC contests."
-                >
-                  Dataset y scripts para explorar problemas y tendencias en competencias ICPC regionales.
-                </div>
-
-                <div class="links-inline">
-                  <a href="https://github.com/pacha2880/ICPC-latam-datos" target="_blank" data-es="Repositorio" data-en="Repository">Repositorio</a>
-                </div>
-              </li>
-
-              <li>
-                <div
-                  class="project-title"
-                  data-es="CSES Pacha Tools – Extensión para CSES"
-                  data-en="CSES Pacha Tools – Extension for CSES"
-                >
-                  CSES Pacha Tools – Extensión para CSES
-                </div>
-
-                <div
-                  class="project-meta"
-                  data-es="Añade utilidades para ordenar y filtrar problemas en CSES."
-                  data-en="Adds tools to sort and filter problems in CSES."
-                >
-                  Añade utilidades para ordenar y filtrar problemas en CSES.
-                </div>
-
-                <div class="links-inline">
-                  <a href="https://github.com/pacha2880/cses-pacha-tools" target="_blank" data-es="Repositorio" data-en="Repository">Repositorio</a>
-                </div>
-              </li>
-
-            </ul>
-
-            <!-- PROYECTOS OCULTOS (Ver más) -->
-            <div id="more-icpc" class="more-projects" style="display: none;">
-              <ul class="projects-list">
-
-                <li>
-                  <div
-                    class="project-title"
-                    data-es="ICPC Consejos y Encuestas"
-                    data-en="ICPC Tips & Surveys"
-                  >
-                    ICPC Consejos y Encuestas
-                  </div>
-
-                  <div
-                    class="project-meta"
-                    data-es="Análisis de 112 estrategias de entrenamiento validadas por competidores expertos."
-                    data-en="Analysis of 112 training strategies validated by expert competitors."
-                  >
-                    Análisis de 112 estrategias de entrenamiento validadas por competidores expertos.
-                  </div>
-
-                  <div class="links-inline">
-                    <a href="https://github.com/pacha2880/icpc-consejos-encuestas" target="_blank" data-es="Repositorio" data-en="Repository">Repositorio</a>
-                  </div>
-                </li>
-
-                <li>
-                  <div
-                    class="project-title"
-                    data-es="Los Anticuchos – Algoritmos para competencias"
-                    data-en="Los Anticuchos – Algorithms for Contests"
-                  >
-                    Los Anticuchos – Algoritmos para competencias
-                  </div>
-
-                  <div
-                    class="project-meta"
-                    data-es="Implementaciones de algoritmos y plantillas usadas en competencias de programación."
-                    data-en="Implementations of algorithms and templates used in programming contests."
-                  >
-                    Implementaciones de algoritmos y plantillas usadas en competencias de programación.
-                  </div>
-
-                  <div class="links-inline">
-                    <a href="https://github.com/pacha2880/los-anticuchos" target="_blank" data-es="Repositorio" data-en="Repository">Repositorio</a>
-                  </div>
-                </li>
-
-                <li>
-                  <div
-                    class="project-title"
-                    data-es="Competitive Programming Scrapers"
-                    data-en="Competitive Programming Scrapers"
-                  >
-                    Competitive Programming Scrapers
-                  </div>
-
-                  <div
-                    class="project-meta"
-                    data-es="Scripts en Python para recolectar datos de páginas de programación competitiva."
-                    data-en="Python scripts to scrape data from competitive programming websites."
-                  >
-                    Scripts en Python para recolectar datos de páginas de programación competitiva.
-                  </div>
-
-                  <div class="links-inline">
-                    <a href="https://github.com/pacha2880/competitive-programming-scrapers" target="_blank" data-es="Repositorio" data-en="Repository">Repositorio</a>
-                  </div>
-                </li>
-
-                <li>
-                  <div
-                    class="project-title"
-                    data-es="Competitive Programming Codes"
-                    data-en="Competitive Programming Codes"
-                  >
-                    Competitive Programming Codes
-                  </div>
-
-                  <div
-                    class="project-meta"
-                    data-es="Colección de soluciones y códigos para problemas de programación competitiva."
-                    data-en="Collection of solutions and template code for competitive programming tasks."
-                  >
-                    Colección de soluciones y códigos para problemas de programación competitiva.
-                  </div>
-
-                  <div class="links-inline">
-                    <a href="https://github.com/pacha2880/competitive_programming_codes" target="_blank" data-es="Repositorio" data-en="Repository">Repositorio</a>
-                  </div>
-                </li>
-
-              </ul>
-            </div>
-
-            <button
-              class="toggle-more"
-              data-target="more-icpc"
-              data-es="Ver más"
-              data-en="Show more"
-            >
-              Ver más
-            </button>
-
-
-          <div class="rainbow-card">
-
-            <div
-              class="project-title"
-              style="font-size: 1.1rem;"
-              data-es="Prototipos y juegos web"
-              data-en="Web Prototypes & Games"
-            >
-              Prototipos y juegos web
-            </div>
-
-            <div
-              class="project-meta"
-              data-es="Prototipos simples para jugar y probar ideas."
-              data-en="Simple prototypes built to play and try ideas."
-            >
-              Prototipos simples para jugar y probar ideas.
-            </div>
-
-            <em
-              style="font-size: 0.85rem; color: #444;"
-              data-es="Haz clic para jugar 🎮"
-              data-en="Click to play 🎮"
-            >
-              Haz clic para jugar 🎮
-            </em>
-
-            <div class="links-inline" style="margin-top: 6px;">
-
-              <a
-                href="https://pacha2880.github.io/space-challenge"
-                target="_blank"
-                data-es="Space Challenge"
-                data-en="Space Challenge"
-              >
-                Space Challenge
-              </a>
-
-              <a
-                href="https://pacha2880.github.io/typing-mario"
-                target="_blank"
-                data-es="Typing Mario"
-                data-en="Typing Mario"
-              >
-                Typing Mario
-              </a>
-
-              <a
-                href="https://pacha2880.github.io/snake"
-                target="_blank"
-                data-es="Snake"
-                data-en="Snake"
-              >
-                Snake
-              </a>
-
-              <a
-                href="https://pacha2880.github.io/paint"
-                target="_blank"
-                data-es="Paint"
-                data-en="Paint"
-              >
-                Paint
-              </a>
-
-              <a
-                href="https://pacha2880.github.io/Pagina-Algoritmos"
-                target="_blank"
-                data-es="Página Algoritmos"
-                data-en="Algorithms Page"
-              >
-                Página Algoritmos
-              </a>
-
-              <a
-                href="https://pacha2880.github.io/mi-primer-sitio-web"
-                target="_blank"
-                data-es="Mi primera página web"
-                data-en="My first webpage"
-              >
-                Mi primera página web
-              </a>
-
-            </div>
-
-          </div>
-
-
-          <h3
-            class="project-group-title"
-            data-es="Misceláneo"
-            data-en="Miscellaneous"
-          >
-            Misceláneo
-          </h3>
-
-          <ul class="projects-list">
-
-            <!-- Compilador -->
-            <li>
-              <div
-                class="project-title"
-                data-es="Compilador Java → SSM"
-                data-en="Java → SSM Compiler"
-              >
-                Compilador Java → SSM
-              </div>
-
-              <div
-                class="project-meta"
-                data-es="Compilador en Haskell que traduce Java a código de ensamblador SSM."
-                data-en="Compiler written in Haskell that translates Java into SSM assembly."
-              >
-                Compilador en Haskell que traduce Java a código de ensamblador SSM.
-              </div>
-
-              <div class="links-inline">
-                <a href="https://github.com/pacha2880/compilador-java-ssm" target="_blank" data-es="Repositorio" data-en="Repository">Repositorio</a>
-              </div>
-            </li>
-
-            <!-- Pong -->
-            <li>
-              <div
-                class="project-title"
-                data-es="Pong – Ensamblador Win32"
-                data-en="Pong – Win32 Assembly"
-              >
-                Pong – Ensamblador Win32
-              </div>
-
-              <div
-                class="project-meta"
-                data-es="Juego clásico implementado en MASM32 con interfaz gráfica Win32."
-                data-en="Classic Pong implemented in MASM32 with a Win32 graphical interface."
-              >
-                Juego clásico implementado en MASM32 con interfaz gráfica Win32.
-              </div>
-
-              <div class="links-inline">
-                <a href="https://github.com/pacha2880/pong" target="_blank" data-es="Repositorio" data-en="Repository">Repositorio</a>
-              </div>
-            </li>
-
-          </ul>
-
-          <!-- PROYECTOS OCULTOS -->
-          <div id="more-backend" class="more-projects" style="display: none;">
-            <ul class="projects-list">
-
-              <!-- Hambre backend -->
-              <li>
-                <div
-                  class="project-title"
-                  data-es="Hambre – backend"
-                  data-en="Hambre – backend"
-                >
-                  Hambre – backend
-                </div>
-
-                <div
-                  class="project-meta"
-                  data-es="Servicio backend sencillo en Python/Flask para experimentos."
-                  data-en="Simple Python/Flask backend service for small experiments."
-                >
-                  Servicio backend sencillo en Python/Flask para experimentos.
-                </div>
-
-                <div class="links-inline">
-                  <a href="https://github.com/pacha2880/hambre-back" target="_blank" data-es="Repositorio" data-en="Repository">Repositorio</a>
-                </div>
-              </li>
-
-              <!-- Snake AI -->
-              <li>
-                <div
-                  class="project-title"
-                  data-es="Snake AI – Python"
-                  data-en="Snake AI – Python"
-                >
-                  Snake AI – Python
-                </div>
-
-                <div
-                  class="project-meta"
-                  data-es="Versión de Snake en Python con diseño orientado a objetos y una red neuronal simple."
-                  data-en="Object-oriented Python Snake with a simple neural network agent."
-                >
-                  Versión de Snake en Python con diseño orientado a objetos y una red neuronal simple.
-                </div>
-
-                <div class="links-inline">
-                  <a href="https://github.com/pacha2880/snake-ai" target="_blank" data-es="Repositorio" data-en="Repository">Repositorio</a>
-                </div>
-              </li>
-
-              <!-- Taller Base de Datos -->
-              <li>
-                <div
-                  class="project-title"
-                  data-es="Taller Base de Datos 2019 – UMSS"
-                  data-en="Database Workshop 2019 – UMSS"
-                >
-                  Taller Base de Datos 2019 – UMSS
-                </div>
-
-                <div
-                  class="project-meta"
-                  data-es="Proyecto académico en PostgreSQL/PLpgSQL para gestionar usuarios, materias y calificaciones."
-                  data-en="PostgreSQL/PLpgSQL academic system for managing users, subjects, and grades."
-                >
-                  Proyecto académico en PostgreSQL/PLpgSQL para gestionar usuarios, materias y calificaciones.
-                </div>
-
-                <div class="links-inline">
-                  <a href="https://github.com/pacha2880/taller-base-de-datos-2019" target="_blank" data-es="Repositorio" data-en="Repository">Repositorio</a>
-                </div>
-              </li>
-
-            </ul>
-          </div>
-
-          <button
-            class="toggle-more"
-            data-target="more-backend"
-            data-es="Ver más"
-            data-en="Show more"
-          >
-            Ver más
-          </button>
-
-
-
-        <section>
-          <h2
-            data-es="Contáctame"
-            data-en="Find me on"
-          >
-            Contáctame
-          </h2>
-
-          <p class="links-inline">
-
-            <a
-              href="https://github.com/pacha2880"
-              target="_blank"
-              data-es="GitHub"
-              data-en="GitHub"
-            >
-              GitHub
-            </a>
-
-            <a
-              href="https://codeforces.com/profile/pacha2880"
-              target="_blank"
-              data-es="Codeforces"
-              data-en="Codeforces"
-            >
-              Codeforces
-            </a>
-
-            <a
-              href="https://www.linkedin.com/in/rodrigo-salguero-a9899b220/"
-              target="_blank"
-              data-es="LinkedIn"
-              data-en="LinkedIn"
-            >
-              LinkedIn
-            </a>
-
-            <a
-              href="mailto:pacha2881@gmail.com"
-              target="_blank"
-              data-es="pacha2881@gmail.com"
-              data-en="pacha2881@gmail.com"
-            >
-              Email
-            </a>
-            <a
-              href="https://t.me/pacha2880"
-              target="_blank"
-              data-es="Telegram"
-              data-en="Telegram"
-            >
-              Telegram
-            </a>
-
-          </p>
-        </section>
-
-        <footer>
-          <p
-            data-es="La noche es larga para quien se queda despierto."
-            data-en="The night is long for those who stay awake."
-          >
-            La noche es larga para quien se queda despierto.
-          </p>
-        </footer>
-
-    </div>
-
-  </body>
+<html lang="es" class="night">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Rodrigo Salguero, Software Engineer</title>
+  <meta name="description" content="Software engineer and 2× ICPC World Finalist. Backend, integrations and AI tools. Open to remote work.">
+  <link rel="canonical" href="https://pacha2880.github.io/">
+  <meta name="theme-color" content="#15171c">
+  <meta property="og:type" content="profile">
+  <meta property="og:site_name" content="pacha2880">
+  <meta property="og:title" content="Rodrigo Salguero, Software Engineer">
+  <meta property="og:description" content="Software engineer and 2× ICPC World Finalist. Backend, integrations and AI tools. Open to remote work.">
+  <meta property="og:url" content="https://pacha2880.github.io/">
+  <meta property="og:image" content="https://pacha2880.github.io/og.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="Pixel art of someone in a black hoodie coding at an old CRT monitor, next to the name Rodrigo Salguero.">
+  <meta name="twitter:card" content="summary_large_image">
+  <script type="application/ld+json">{"@context": "https://schema.org", "@type": "Person", "name": "Rodrigo Salguero", "alternateName": "pacha2880", "jobTitle": "Software Engineer", "url": "https://pacha2880.github.io/", "image": "https://pacha2880.github.io/og.png", "address": {"@type": "PostalAddress", "addressLocality": "Cochabamba", "addressCountry": "BO"}, "alumniOf": {"@type": "CollegeOrUniversity", "name": "Universidad Mayor de San Simón"}, "knowsAbout": ["Backend development", "API integrations", "Python", "FastAPI", "TypeScript", "C++", "CI/CD", "Competitive programming"], "sameAs": ["https://github.com/pacha2880", "https://www.linkedin.com/in/rodrigo-salguero-a9899b220/", "https://codeforces.com/profile/pacha2880"]}</script>
+  <meta name="color-scheme" content="light dark">
+  <link rel="icon" href="favicon.ico">
   <script>
     (function () {
-      const STORAGE_LANG_KEY = "pacha_lang";
-      const STORAGE_MORE_PREFIX = "pacha_more_";
+      var d = document.documentElement, s = localStorage;
+      var l = s.getItem("pacha_lang") || ((navigator.language || "").toLowerCase().indexOf("es") === 0 ? "es" : "en");
+      d.lang = l;
+      var t = s.getItem("pacha_theme");
+      if (t) d.setAttribute("data-theme", t);
+    })();
+  </script>
+  <style>
+    html[lang="es"] [lang="en"], html[lang="en"] [lang="es"] { display: none !important; }
+    *, *::before, *::after { box-sizing: border-box; }
+    body { margin: 0; }
+    img { max-width: 100%; }
+    .skip { position: absolute; left: -999px; top: 0; padding: .75rem 1rem; z-index: 10; }
+    .skip:focus { left: 1rem; top: 1rem; }
+    :focus-visible { outline: 3px solid var(--accent); outline-offset: 3px; border-radius: 4px; }
+    @media (prefers-reduced-motion: reduce) { *, *::before, *::after { animation: none !important; transition: none !important; scroll-behavior: auto !important; } }
+    /* B · Turno noche: dark-first. Tokens:
+       night #15171C, panel #1C1F27, chalk #ECE8E1, ash #A9A59D, seam #2E323C,
+       Codeforces-Master orange #FF8C00 (the handle colour of a CF Master) */
+    :root {
+      --bg: #15171c; --panel: #1c1f27; --ink: #ece8e1; --muted: #a9a59d; --rule: #2e323c; --accent: #ff8c00; --on-accent: #15171c;
+      --sans: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+      --mono: ui-monospace, "Cascadia Code", "SF Mono", Menlo, Consolas, monospace;
+    }
+    :root[data-theme="light"] { --bg: #f4f5f7; --panel: #ffffff; --ink: #1c1f27; --muted: #555b66; --rule: #dcdfe5; --accent: #a34f00; --on-accent: #ffffff; }
+    html { background: var(--bg); color: var(--ink); scroll-behavior: smooth; }
+    body { font: 400 1.0625rem/1.65 var(--sans); max-width: 62rem; margin: 0 auto; padding: 0 clamp(1rem, 4vw, 2rem) 3rem; }
+    a { color: var(--ink); text-decoration-color: var(--accent); text-underline-offset: .22em; text-decoration-thickness: 2px; }
+    a:hover { color: var(--accent); }
+    .skip { background: var(--accent); color: var(--on-accent); }
 
-      function aplicarIdioma(lang) {
-        document.body.setAttribute("data-lang", lang);
+    .bar { position: sticky; top: 0; z-index: 5; display: flex; flex-wrap: wrap; gap: .25rem 1rem; align-items: center; justify-content: space-between; padding: .5rem 0; background: color-mix(in srgb, var(--bg) 92%, transparent); backdrop-filter: blur(6px); border-bottom: 1px solid var(--rule); }
+    .bar nav { display: flex; flex-wrap: wrap; gap: 0 1.1rem; font-size: .95rem; }
+    .bar nav a { color: var(--muted); text-decoration: none; padding: .7rem 0; display: inline-block; }
+    .bar nav a:hover { color: var(--ink); }
+    .controls { display: flex; gap: .5rem; }
+    .controls button { font: inherit; font-size: .9rem; color: var(--ink); background: var(--panel); border: 1px solid var(--rule); border-radius: 8px; padding: .5rem .9rem; min-height: 44px; cursor: pointer; }
+    .controls button:hover { border-color: var(--accent); }
 
-        const langSwitch = document.getElementById("lang-switch");
-        if (langSwitch && langSwitch.value !== lang) {
-          langSwitch.value = lang;
-        }
+    h1, h2, h3 { line-height: 1.15; }
+    .hero { padding: clamp(2.5rem, 8vw, 5rem) 0 0; }
+    h1 { font-size: clamp(2.6rem, 8.5vw, 5rem); font-weight: 800; letter-spacing: -.035em; margin: 0; }
+    .handle { margin: .25rem 0 1.25rem; font-family: var(--mono); font-size: clamp(1.15rem, 3vw, 1.4rem); font-weight: 700; }
+    .handle a { color: var(--accent); text-decoration: none; }
+    .role { font-size: clamp(1.25rem, 3.4vw, 1.6rem); font-weight: 650; margin: 0 0 1.1rem; line-height: 1.3; }
+    .tagline { font-size: 1.15rem; max-width: 40rem; margin: 0 0 .6rem; }
+    .avail { color: var(--muted); margin: 0 0 1.6rem; }
+    .cta { display: flex; flex-wrap: wrap; gap: .6rem; margin: 0 0 2.25rem; }
+    .btn { display: inline-flex; align-items: center; min-height: 44px; padding: .5rem 1.05rem; border: 1px solid var(--rule); border-radius: 8px; background: var(--panel); color: var(--ink); text-decoration: none; }
+    .btn:hover { border-color: var(--accent); color: var(--ink); }
+    .btn.primary { background: var(--accent); border-color: var(--accent); color: var(--on-accent); font-weight: 700; }
 
-        document.querySelectorAll("[data-es][data-en]").forEach(el => {
-          // Solo cambiamos elementos sin hijos para no romper estructuras internas
-          if (el.children.length === 0) {
-            const val = el.getAttribute("data-" + lang);
-            if (val !== null) {
-              el.textContent = val;
-            }
-          }
-        });
-      }
+    .stats { list-style: none; padding: 0; margin: 0; display: grid; grid-template-columns: repeat(auto-fit, minmax(13rem, 1fr)); gap: .75rem; }
+    .stats li { background: var(--panel); border: 1px solid var(--rule); border-radius: 12px; padding: 1rem 1.1rem; color: var(--muted); font-size: .95rem; line-height: 1.4; }
+    .stats li:first-child { border-color: var(--accent); }
+    .stats strong { display: block; font-family: var(--mono); font-size: 2.1rem; color: var(--ink); margin-bottom: .2rem; }
+    @media (max-width: 34rem) { .stats { grid-template-columns: 1fr 1fr; } .stats strong { font-size: 1.6rem; } }
 
-      function setMoreState(button, isOpen) {
-        const targetId = button.getAttribute("data-target");
-        const target = document.getElementById(targetId);
-        if (!target) return;
+    section { margin-top: clamp(3rem, 8vw, 4.5rem); scroll-margin-top: 4.5rem; }
+    h2 { font-size: 1.6rem; font-weight: 800; letter-spacing: -.02em; margin: 0 0 1.25rem; }
+    h3 { font-size: 1.15rem; font-weight: 700; margin: 0; }
 
-        target.style.display = isOpen ? "block" : "none";
+    .jobs { list-style: none; padding: 0; margin: 0; max-width: 48rem; }
+    .jobs > li { display: grid; gap: .15rem 1.5rem; padding: 1.1rem 0; border-top: 1px solid var(--rule); }
+    .jobs > li:first-child { border-top: 0; padding-top: 0; }
+    @media (min-width: 46rem) { .jobs > li { grid-template-columns: 11rem 1fr; } }
+    .when { margin: .15rem 0 0; color: var(--muted); font-family: var(--mono); font-size: .88rem; }
+    .where { margin: .15rem 0 .35rem; color: var(--muted); font-size: .95rem; }
+    .jobs ul { margin: 0; padding-left: 1.1rem; }
+    .jobs ul li { margin: .25rem 0; }
+    .jobs ul li::marker { color: var(--accent); }
 
-        if (isOpen) {
-          button.setAttribute("data-es", "Ver menos");
-          button.setAttribute("data-en", "Show less");
-        } else {
-          button.setAttribute("data-es", "Ver más");
-          button.setAttribute("data-en", "Show more");
-        }
+    .featured { list-style: none; padding: 0; margin: 0; display: grid; gap: .9rem; }
+    @media (min-width: 46rem) { .featured { grid-template-columns: 1fr 1fr; } }
+    .featured > li { background: var(--panel); border: 1px solid var(--rule); border-radius: 12px; padding: 1.2rem 1.25rem; display: flex; flex-direction: column; }
+    .featured p { margin: .35rem 0; }
+    .featured .links { margin-top: auto; padding-top: .4rem; }
+    .tech { color: var(--muted); font-size: .9rem; }
+    .links { display: flex; flex-wrap: wrap; gap: 0 1.25rem; }
+    .links a, .contact a, .games a, .more a { display: inline-block; padding: .45rem 0; }
 
-        const lang = document.body.getAttribute("data-lang") || "es";
-        const label = button.getAttribute("data-" + lang);
-        if (label) {
-          button.textContent = label;
-        }
+    details.more { margin-top: 1.25rem; max-width: 48rem; }
+    summary { cursor: pointer; min-height: 44px; display: flex; align-items: center; }
+    .more summary { color: var(--accent); font-weight: 600; }
+    .more ul { padding-left: 1.1rem; }
+    .more li { margin: .2rem 0; color: var(--muted); }
 
-        if (targetId) {
-          localStorage.setItem(STORAGE_MORE_PREFIX + targetId, isOpen ? "1" : "0");
-        }
-      }
+    .plain { padding-left: 1.1rem; margin: 0; max-width: 48rem; }
+    .plain li { margin: .45rem 0; }
+    .plain li::marker { color: var(--accent); }
+    #formacion > p { max-width: 48rem; }
+    .skills { display: grid; grid-template-columns: max-content 1fr; gap: .35rem 1.25rem; margin: 1.25rem 0 0; max-width: 48rem; }
+    .skills dt { font-family: var(--mono); color: var(--muted); font-size: .92rem; padding-top: .1rem; }
+    .skills dd { margin: 0; }
+    @media (max-width: 30rem) { .skills { grid-template-columns: 1fr; } .skills dd { margin-bottom: .5rem; } }
 
-      document.addEventListener("DOMContentLoaded", function () {
-        // Idioma inicial desde localStorage o 'es'
-        let lang = localStorage.getItem(STORAGE_LANG_KEY);
-         // Si no hay preferencia guardada → detectamos desde el navegador
-        if (!lang) {
-          const browser = (navigator.language || navigator.userLanguage || "").toLowerCase();
-          // 👉 Español solo si empieza con "es"
-          lang = browser.startsWith("es") ? "es" : "en";
-        }
+    .rainbow { border-radius: 14px; padding: .5rem 1.25rem 1rem; border: 1px solid var(--rule); background: linear-gradient(90deg, #ff000038, #ff7f0038, #ffff0038, #00ff0038, #007fff38, #0000ff38, #8b00ff38); background-size: 400% 100%; animation: wave 14s ease-in-out infinite; }
+    .rainbow summary h2 { margin: 0; font-size: 1.35rem; }
+    .rainbow summary { list-style: none; gap: .6rem; }
+    .rainbow summary::-webkit-details-marker { display: none; }
+    .rainbow summary::before { content: "▸"; transition: transform .2s; }
+    .rainbow[open] summary::before { transform: rotate(90deg); }
+    .games { list-style: none; padding: 0; display: flex; flex-wrap: wrap; gap: 0 1.25rem; margin: 0; }
+    @keyframes wave { 0%, 100% { background-position: 0% 50%; } 50% { background-position: 100% 50%; } }
 
-        aplicarIdioma(lang);
+    .contact { list-style: none; padding: 0; display: flex; flex-wrap: wrap; gap: 0 1.5rem; }
+    footer { margin-top: 4rem; padding-top: 1.5rem; border-top: 1px solid var(--rule); color: var(--muted); }
+    footer p { margin: .2rem 0; }
+    .clock { font-family: var(--mono); font-size: clamp(2.5rem, 9vw, 4rem); font-weight: 700; color: var(--accent); letter-spacing: .04em; line-height: 1; margin-bottom: .5rem !important; }
+    .handle a, footer a { display: inline-block; padding: .55rem 0; }
+    :root:not([data-theme="light"]) .rainbow { background-image: linear-gradient(90deg, #ff000066, #ff7f0066, #ffff0066, #00ff0066, #007fff66, #0000ff66, #8b00ff66); }
+    .bar { background: var(--bg); }
+    @supports (background: color-mix(in srgb, red 50%, transparent)) { .bar { background: color-mix(in srgb, var(--bg) 92%, transparent); } }
+    .night-shift { display: flex; flex-wrap: wrap; align-items: flex-end; gap: .5rem 1.5rem; margin-bottom: 1rem; }
+    .sprite { width: 192px; height: auto; image-rendering: pixelated; flex: none; }
+    .spr-a { animation: sprA .45s steps(1) infinite; }
+    .spr-b { opacity: 0; animation: sprB .45s steps(1) infinite; }
+    .spr-cursor { animation: blink 1s steps(1) infinite; }
+    @keyframes sprA { 50% { opacity: 0; } }
+    @keyframes sprB { 50% { opacity: 1; } }
+    @keyframes blink { 50% { opacity: 0; } }
+    .night-shift p { margin: 0 0 .4rem; }
+    .night-shift .phrase { font-size: 1.05rem; color: var(--ink); }
+    @media (max-width: 40rem) { .bar { position: static; } section { scroll-margin-top: 0; } }
 
-        // Selector de idioma
-        const langSwitch = document.getElementById("lang-switch");
-        if (langSwitch) {
-          langSwitch.value = lang;
-          langSwitch.addEventListener("change", function () {
-            const nuevo = this.value || "es";
-            localStorage.setItem(STORAGE_LANG_KEY, nuevo);
-            aplicarIdioma(nuevo);
-          });
-        }
+  </style>
+</head>
+<body>
+  <a class="skip" href="#main"><span lang="es">Saltar al contenido</span><span lang="en">Skip to content</span></a>
 
-        // Botones "Ver más / Ver menos"
-        document.querySelectorAll(".toggle-more").forEach(button => {
-          const targetId = button.getAttribute("data-target");
-          const saved = targetId
-            ? localStorage.getItem(STORAGE_MORE_PREFIX + targetId)
-            : null;
+  <header class="bar">
+    <nav aria-label="Secciones">
+      <a href="#experiencia"><span lang="es">Experiencia</span><span lang="en">Experience</span></a>
+      <a href="#proyectos"><span lang="es">Proyectos</span><span lang="en">Projects</span></a>
+      <a href="#competitiva"><span lang="es">Competitiva</span><span lang="en">Competitive</span></a>
+      <a href="#contacto"><span lang="es">Contacto</span><span lang="en">Contact</span></a>
+    </nav>
+    <div class="controls">
+      <button id="lang-btn" type="button"><span lang="es">English</span><span lang="en">Español</span></button>
+      <button id="theme-btn" type="button" aria-pressed="false">
+        <span lang="es">Encender la luz</span><span lang="en">Lights on</span>
+      </button>
+    </div>
+  </header>
 
-          const initialOpen = saved === "1";
-          setMoreState(button, initialOpen);
+  <main id="main">
+    <section class="hero" aria-labelledby="nombre">
+      <h1 id="nombre">Rodrigo Salguero</h1>
+      <p class="handle"><a href="https://codeforces.com/profile/pacha2880">pacha2880</a></p>
+      <p class="role">Software Engineer<br><span lang="es">2 veces finalista mundial de la ICPC</span><span lang="en">2× ICPC World Finalist</span></p>
+      <p class="tagline">
+        <span lang="es">Programador competitivo de noche, ingeniero de software de día. Construyo backends, integraciones y herramientas con IA, y entreno equipos de la ICPC desde 2018.</span>
+        <span lang="en">Competitive programmer by night, software engineer by day. I build backends, integrations and AI tools, and I have coached ICPC teams since 2018.</span>
+      </p>
+      <p class="avail">
+        <span lang="es">Disponible para trabajo remoto desde Cochabamba, Bolivia (UTC−4).</span>
+        <span lang="en">Available for remote work from Cochabamba, Bolivia (UTC−4).</span>
+      </p>
+      <p class="cta">
+        <a class="btn primary" href="CV_Rodrigo_Salguero.pdf"><span lang="es">Ver CV (PDF)</span><span lang="en">View CV (PDF)</span></a>
+        <a class="btn" href="mailto:pacha2881@gmail.com">Email</a>
+        <a class="btn" href="https://www.linkedin.com/in/rodrigo-salguero-a9899b220/">LinkedIn</a>
+        <a class="btn" href="https://github.com/pacha2880">GitHub</a>
+      </p>
+      <ul class="stats">
+        <li><strong>2×</strong> <span lang="es">finalista mundial ICPC (2022, 2024)</span><span lang="en">ICPC World Finalist (2022, 2024)</span></li>
+        <li><strong>2185</strong> <span lang="es">rating máximo en Codeforces (Master)</span><span lang="en">peak Codeforces rating (Master)</span></li>
+        <li><strong>3.º</strong><span lang="es">en la ICPC Sudamérica Sur</span><span lang="en">at ICPC South America/South</span></li>
+        <li><strong>11.º</strong> <span lang="es">mundial en IEEEXtreme</span><span lang="en">worldwide at IEEEXtreme</span></li>
+      </ul>
+    </section>
 
-          button.addEventListener("click", function () {
-            const current = localStorage.getItem(STORAGE_MORE_PREFIX + targetId) === "1";
-            setMoreState(button, !current);
-          });
-        });
+    <section id="experiencia" aria-labelledby="h-exp">
+      <h2 id="h-exp"><span lang="es">Experiencia</span><span lang="en">Experience</span></h2>
+      <ol class="jobs">
+        <li>
+          <p class="when"><span lang="es">jun. 2026 – sep. 2026</span><span lang="en">Jun 2026 – Sep 2026</span></p>
+          <div>
+            <h3>Integrations Engineer, Canals AI</h3>
+            <p class="where"><span lang="es">Remoto (EE. UU.)</span><span lang="en">Remote (US)</span></p>
+            <ul>
+              <li><span lang="es">Construí la mayor parte de 3 integraciones en producción con ERP, CRM y helpdesk, con APIs REST, OAuth y webhooks.</span><span lang="en">Built most of 3 production ERP, CRM and helpdesk integrations with REST APIs, OAuth and webhooks.</span></li>
+              <li><span lang="es">Interpreté direcciones de envío con un LLM y las validé con la API de Google Maps: 90% menos direcciones mal identificadas.</span><span lang="en">Parsed shipping addresses with an LLM and checked them against the Google Maps API, cutting misidentified addresses by 90%.</span></li>
+              <li><span lang="es">Cambios de frontend en TypeScript en el producto.</span><span lang="en">TypeScript frontend changes to the product.</span></li>
+            </ul>
+          </div>
+        </li>
+        <li>
+          <p class="when"><span lang="es">feb. 2026 – abr. 2026</span><span lang="en">Feb 2026 – Apr 2026</span></p>
+          <div>
+            <h3><span lang="es">Software Robotics Engineer (freelance), startup internacional de robótica</span><span lang="en">Software Robotics Engineer (freelance), international robotics startup</span></h3>
+            <p class="where"><span lang="es">Remoto (EE. UU.)</span><span lang="en">Remote (US)</span></p>
+            <ul>
+              <li><span lang="es">App web en Flask para teleoperar y monitorear un brazo robótico con Arduino, con video en vivo y control desde el celular.</span><span lang="en">Flask web app to teleoperate and monitor an Arduino-controlled robotic arm, with live video and mobile control.</span></li>
+            </ul>
+          </div>
+        </li>
+        <li>
+          <p class="when"><span lang="es">ago. 2024 – dic. 2025</span><span lang="en">Aug 2024 – Dec 2025</span></p>
+          <div>
+            <h3>Simulation &amp; Integration Engineer, Volvo Group Trucks Technology</h3>
+            <p class="where"><span lang="es">Gotemburgo, Suecia (pasante hasta jul. 2025)</span><span lang="en">Gothenburg, Sweden (intern until Jul 2025)</span></p>
+            <ul>
+              <li><span lang="es">Responsable de pipelines CI/CD de simulación SIL para validar ADAS: resimulaciones continuas y corridas quincenales en Kubernetes sobre terabytes de datos.</span><span lang="en">Owned SIL CI/CD pipelines for ADAS validation: continuous resimulations plus bi-weekly Kubernetes runs over terabytes of data.</span></li>
+              <li><span lang="es">Reduje a la mitad el tiempo de las simulaciones y agregué pipelines para verificar y validar productos nuevos.</span><span lang="en">Cut simulation run time in half and added pipelines to verify and validate new products.</span></li>
+              <li><span lang="es">C++ en una herramienta interna de simulación y visualización, integrada con un software de simulación.</span><span lang="en">C++ on an in-house simulation and visualization tool, integrated with simulation software.</span></li>
+            </ul>
+          </div>
+        </li>
+        <li>
+          <p class="when"><span lang="es">abr. 2022 – dic. 2022</span><span lang="en">Apr 2022 – Dec 2022</span></p>
+          <div>
+            <h3>Python Back-End Developer, Zebrands</h3>
+            <p class="where"><span lang="es">Remoto (México)</span><span lang="en">Remote (Mexico)</span></p>
+            <ul>
+              <li><span lang="es">Endpoints de API en Flask para integrar pasarelas de pago, con tests unitarios y AWS Lambda.</span><span lang="en">Flask API endpoints for payment gateway integrations, with unit tests and AWS Lambda.</span></li>
+              <li><span lang="es">Funciones de back-office en ERPNext/Frappe, reportes financieros y consultas SQL complejas.</span><span lang="en">ERPNext/Frappe back-office features, finance reports and complex SQL queries.</span></li>
+            </ul>
+          </div>
+        </li>
+        <li>
+          <p class="when"><span lang="es">ene. 2019 – jul. 2022</span><span lang="en">Jan 2019 – Jul 2022</span></p>
+          <div>
+            <h3><span lang="es">Auxiliar de docencia, Universidad Mayor de San Simón</span><span lang="en">Teaching Assistant, Universidad Mayor de San Simón</span></h3>
+            <p class="where"><span lang="es">Introducción a la Programación y Estructuras de Datos</span><span lang="en">Intro to Programming and Data Structures</span></p>
+          </div>
+        </li>
+      </ol>
+    </section>
+
+    <section id="proyectos" aria-labelledby="h-proy">
+      <h2 id="h-proy"><span lang="es">Proyectos</span><span lang="en">Projects</span></h2>
+      <ul class="featured">
+        <li>
+          <h3>Taekwondo Tournament Manager</h3>
+          <p class="tech"><span lang="es">En construcción.</span><span lang="en">Work in progress.</span> Python, FastAPI, SQLAlchemy, PostgreSQL</p>
+          <p><span lang="es">API REST para inscripción, llaves y puntaje, pensada para torneos de 100 a 200 atletas. JWT, documentación OpenAPI y CI con más de 200 tests sobre SQLite y PostgreSQL. Desplegada en Render y Neon.</span><span lang="en">REST API for registration, brackets and scoring, designed for tournaments of 100–200 athletes. JWT auth, OpenAPI docs and CI running 200+ tests on SQLite and PostgreSQL. Deployed on Render and Neon.</span></p>
+          <p class="links"><a href="https://github.com/pacha2880/taekwondo-tournament-manager"><span lang="es">Código</span><span lang="en">Code</span></a> <a href="https://taekwondo-tournament-manager.onrender.com/docs"><span lang="es">Docs de la API (tarda ~40 s en despertar)</span><span lang="en">API docs (takes ~40 s to wake up)</span></a></p>
+        </li>
+        <li>
+          <h3>PachaContests</h3>
+          <p class="tech">Python, FastAPI, MongoDB, JavaScript</p>
+          <p><span lang="es">App web con cuentas de usuario que recomienda problemas de Codeforces y AtCoder que nadie de un grupo de entrenamiento resolvió todavía.</span><span lang="en">Web app with user accounts that recommends Codeforces and AtCoder problems nobody in a training group has solved yet.</span></p>
+          <p class="links"><a href="https://github.com/pacha2880/contest-generator"><span lang="es">Código</span><span lang="en">Code</span></a></p>
+        </li>
+        <li>
+          <h3>CSES Pacha Tools</h3>
+          <p class="tech"><span lang="es">JavaScript, extensión de Chrome</span><span lang="en">JavaScript, Chrome extension</span></p>
+          <p><span lang="es">Publicada en la Chrome Web Store: ordena y filtra los problemas de CSES y sigue el progreso de tu equipo. Cada versión se publica sola con GitHub Actions.</span><span lang="en">Published on the Chrome Web Store: sorts and filters CSES problems and tracks a team's progress. Every version ships automatically with GitHub Actions.</span></p>
+          <p class="links"><a href="https://chromewebstore.google.com/detail/jjniilllmpgdakgffiilihbjchglpjjp">Chrome Web Store</a> <a href="https://github.com/pacha2880/cses-pacha-tools"><span lang="es">Código</span><span lang="en">Code</span></a></p>
+        </li>
+        <li>
+          <h3><span lang="es">Skills para agentes de IA</span><span lang="en">AI agent skills</span></h3>
+          <p class="tech">Claude Code, Agent Skills</p>
+          <p><span lang="es">Tres skills abiertas para Claude: una escribe editoriales de programación competitiva y sube competencias a Codeforces Gym (ya se usó con el nacional de la ICPC Bolivia 2026), otra arma CVs de una página en LaTeX y otra es un diario reflexivo.</span><span lang="en">Three open skills for Claude: one writes competitive programming editorials and moves contests to Codeforces Gym (already used for the ICPC Bolivia 2026 national contest), one builds one-page LaTeX CVs and one is a reflective journal.</span></p>
+          <p class="links"><a href="https://github.com/pacha2880/cp-skills">cp-skills</a> <a href="https://github.com/pacha2880/cv-skills">cv-skills</a> <a href="https://github.com/pacha2880/reflective-journal">reflective-journal</a></p>
+        </li>
+      </ul>
+
+      <details class="more">
+        <summary><span lang="es">Más proyectos (11)</span><span lang="en">More projects (11)</span></summary>
+        <ul>
+          <li><a href="https://pacha2880.github.io/pachabook/"><span lang="es">112 consejos para dominar la ICPC</span><span lang="en">112 tips to master the ICPC</span></a> <span lang="es">Libro de bolsillo, en PDF y en la web.</span><span lang="en">Pocket book in Spanish, PDF and web.</span></li>
+          <li><a href="https://github.com/youngwoanglee13/tkd-pagina">Taekwondo Academy Manager</a> <span lang="es">Angular y Firebase, freelance (2023): inscripciones, asistencia, pagos y deudas.</span><span lang="en">Angular and Firebase, freelance (2023): enrollment, attendance, payments and debts.</span></li>
+          <li><a href="https://github.com/pacha2880/ICPC-latam-datos">ICPC LATAM</a> <span lang="es">Datos y análisis de las regionales latinoamericanas.</span><span lang="en">Data and analysis of Latin American regionals.</span></li>
+          <li><a href="https://github.com/pacha2880/icpc-consejos-encuestas">ICPC <span lang="es">consejos y encuestas</span><span lang="en">tips and surveys</span></a> <span lang="es">112 estrategias de entrenamiento validadas por competidores expertos.</span><span lang="en">112 training strategies validated by expert competitors.</span></li>
+          <li><a href="https://github.com/pacha2880/los-anticuchos">Los Anticuchos</a> <span lang="es">Biblioteca de algoritmos en C++ para competencias.</span><span lang="en">C++ algorithm library for contests.</span></li>
+          <li><a href="https://github.com/pacha2880/competitive-programming-scrapers">Competitive Programming Scrapers</a> <span lang="es">Scrapers en Python de sitios de competitiva.</span><span lang="en">Python scrapers for competitive programming sites.</span></li>
+          <li><a href="https://github.com/pacha2880/competitive_programming_codes">Competitive Programming Codes</a> <span lang="es">Soluciones a problemas de competitiva.</span><span lang="en">Solutions to competitive programming problems.</span></li>
+          <li><a href="https://github.com/pacha2880/compilador-java-ssm"><span lang="es">Compilador Java → SSM</span><span lang="en">Java → SSM compiler</span></a> <span lang="es">En Haskell.</span><span lang="en">Written in Haskell.</span></li>
+          <li><a href="https://github.com/pacha2880/snake-ai">Snake AI</a> <span lang="es">Python y una red neuronal simple.</span><span lang="en">Python and a simple neural network.</span></li>
+          <li><a href="https://github.com/pacha2880/hambre-back">Hambre</a> <span lang="es">API en Flask para recomendar restaurantes y platos.</span><span lang="en">Flask API that recommends restaurants and dishes.</span></li>
+          <li><a href="https://github.com/pacha2880/pong">Pong</a> <span lang="es">En ensamblador MASM32.</span><span lang="en">In MASM32 assembly.</span></li>
+        </ul>
+      </details>
+    </section>
+
+    <section id="competitiva" aria-labelledby="h-cp">
+      <h2 id="h-cp"><span lang="es">Programación competitiva</span><span lang="en">Competitive programming</span></h2>
+      <ul class="plain">
+        <li><span lang="es">Mención honrosa en la 45.ª y la 47.ª final mundial de la ICPC (2022, 2024).</span><span lang="en">Honorable Mention at the 45th and 47th ICPC World Finals (2022, 2024).</span></li>
+        <li><span lang="es">Codeforces Master, rating máximo 2185.</span><span lang="en">Codeforces Master, peak rating 2185.</span><span> <span lang="es">Por eso el handle de arriba está en naranja.</span><span lang="en">That is why the handle up top is orange.</span></span></li>
+        <li><span lang="es">Autor de problemas para la Olimpiada Iberoamericana de Informática (2021, 2022), la ICPC Bolivia (2021) y la SanSi Cup (más de 200 participantes).</span><span lang="en">Problemsetter for the Ibero-American Olympiad in Informatics (2021, 2022), ICPC Bolivia (2021) and SanSi Cup (200+ participants).</span></li>
+        <li><span lang="es">Organizador de la Olimpiada Boliviana de Informática y coach de equipos ICPC desde 2018.</span><span lang="en">Organizer of the Bolivian Olympiad in Informatics and ICPC team coach since 2018.</span></li>
+      </ul>
+    </section>
+
+    <section id="formacion" aria-labelledby="h-edu">
+      <h2 id="h-edu"><span lang="es">Formación y herramientas</span><span lang="en">Education and tools</span></h2>
+      <p><span lang="es"><strong>Ingeniería Informática</strong>, Universidad Mayor de San Simón (2025). Tesis con la máxima calificación: estrategias y herramientas para preparar equipos de competencias universitarias de programación.</span><span lang="en"><strong>B.S. in Informatics Engineering</strong>, Universidad Mayor de San Simón (2025). Thesis with highest honors: strategies and tools for preparing teams for university programming contests.</span></p>
+      <dl class="skills">
+        <dt><span lang="es">Lenguajes</span><span lang="en">Languages</span></dt><dd>Python, TypeScript, JavaScript, SQL, C++, C#</dd>
+        <dt>Web</dt><dd>FastAPI, Flask, Angular, Firebase, PostgreSQL, MongoDB, REST, OAuth, webhooks</dd>
+        <dt>DevOps</dt><dd>Docker, Kubernetes, Jenkins, GitHub Actions, AWS Lambda, Git</dd>
+        <dt>IA</dt><dd><span lang="es">Claude Code (certificado de Anthropic Academy), Claude API y MCP (en curso)</span><span lang="en">Claude Code (Anthropic Academy certified), Claude API and MCP (in progress)</span></dd>
+        <dt><span lang="es">Idiomas</span><span lang="en">Spoken</span></dt><dd><span lang="es">Español nativo, inglés C1</span><span lang="en">Spanish (native), English (C1)</span></dd>
+      </dl>
+    </section>
+
+    <section id="juegos" aria-labelledby="h-games">
+      <details class="rainbow">
+        <summary><h2 id="h-games"><span lang="es">Rincón de juegos</span><span lang="en">Games corner</span></h2></summary>
+        <p><span lang="es">Prototipos de la universidad para jugar y probar ideas. Nada de esto va a producción.</span><span lang="en">University prototypes built to play and try ideas. None of this goes to production.</span></p>
+        <ul class="games">
+          <li><a href="https://pacha2880.github.io/space-challenge/">Space Challenge</a></li>
+          <li><a href="https://pacha2880.github.io/typing-mario/">Typing Mario</a></li>
+          <li><a href="https://pacha2880.github.io/snake/">Snake</a></li>
+          <li><a href="https://pacha2880.github.io/paint/">Paint</a></li>
+          <li><a href="https://pacha2880.github.io/Pagina-Algoritmos/"><span lang="es">Página de algoritmos</span><span lang="en">Algorithms page</span></a></li>
+          <li><a href="https://pacha2880.github.io/mi-primer-sitio-web/"><span lang="es">Mi primera página web</span><span lang="en">My first webpage</span></a></li>
+        </ul>
+      </details>
+    </section>
+
+    <section id="contacto" aria-labelledby="h-contact">
+      <h2 id="h-contact"><span lang="es">Contacto</span><span lang="en">Contact</span></h2>
+      <p><span lang="es">La forma más rápida es el email. También respondo por Telegram.</span><span lang="en">Email is the fastest way. I also answer on Telegram.</span></p>
+      <ul class="contact">
+        <li><a href="mailto:pacha2881@gmail.com">pacha2881@gmail.com</a></li>
+        <li><a href="https://www.linkedin.com/in/rodrigo-salguero-a9899b220/">LinkedIn</a></li>
+        <li><a href="https://github.com/pacha2880">GitHub</a></li>
+        <li><a href="https://codeforces.com/profile/pacha2880">Codeforces</a></li>
+        <li><a href="https://t.me/pacha2880">Telegram</a></li>
+      </ul>
+    </section>
+  </main>
+
+  <footer>
+    <div class="night-shift">
+      <svg class="sprite" viewBox="0 0 48 36" width="192" height="144" shape-rendering="crispEdges" aria-hidden="true" focusable="false"><g class="spr-base"><rect x="9" y="1" width="28" height="1" fill="#cfc8b6"/><rect x="9" y="2" width="27" height="1" fill="#cfc8b6"/><rect x="36" y="2" width="2" height="1" fill="#9e9786"/><rect x="9" y="3" width="27" height="1" fill="#cfc8b6"/><rect x="36" y="3" width="2" height="1" fill="#9e9786"/><rect x="38" y="3" width="1" height="1" fill="#7d7768"/><rect x="9" y="4" width="4" height="1" fill="#cfc8b6"/><rect x="13" y="4" width="20" height="1" fill="#10140f"/><rect x="33" y="4" width="3" height="1" fill="#cfc8b6"/><rect x="36" y="4" width="2" height="1" fill="#9e9786"/><rect x="38" y="4" width="1" height="1" fill="#7d7768"/><rect x="9" y="5" width="3" height="1" fill="#cfc8b6"/><rect x="12" y="5" width="22" height="1" fill="#10140f"/><rect x="34" y="5" width="2" height="1" fill="#cfc8b6"/><rect x="36" y="5" width="2" height="1" fill="#9e9786"/><rect x="38" y="5" width="1" height="1" fill="#7d7768"/><rect x="9" y="6" width="3" height="1" fill="#cfc8b6"/><rect x="12" y="6" width="2" height="1" fill="#10140f"/><rect x="14" y="6" width="9" height="1" fill="#ff8c00"/><rect x="23" y="6" width="11" height="1" fill="#10140f"/><rect x="34" y="6" width="2" height="1" fill="#cfc8b6"/><rect x="36" y="6" width="2" height="1" fill="#9e9786"/><rect x="38" y="6" width="1" height="1" fill="#7d7768"/><rect x="9" y="7" width="3" height="1" fill="#cfc8b6"/><rect x="12" y="7" width="22" height="1" fill="#10140f"/><rect x="34" y="7" width="2" height="1" fill="#cfc8b6"/><rect x="36" y="7" width="2" height="1" fill="#9e9786"/><rect x="38" y="7" width="1" height="1" fill="#7d7768"/><rect x="9" y="8" width="3" height="1" fill="#cfc8b6"/><rect x="12" y="8" width="4" height="1" fill="#10140f"/><rect x="16" y="8" width="12" height="1" fill="#ff8c00"/><rect x="28" y="8" width="6" height="1" fill="#10140f"/><rect x="34" y="8" width="2" height="1" fill="#cfc8b6"/><rect x="36" y="8" width="2" height="1" fill="#9e9786"/><rect x="38" y="8" width="1" height="1" fill="#7d7768"/><rect x="9" y="9" width="3" height="1" fill="#cfc8b6"/><rect x="12" y="9" width="22" height="1" fill="#10140f"/><rect x="34" y="9" width="2" height="1" fill="#cfc8b6"/><rect x="36" y="9" width="2" height="1" fill="#9e9786"/><rect x="38" y="9" width="1" height="1" fill="#7d7768"/><rect x="9" y="10" width="3" height="1" fill="#cfc8b6"/><rect x="12" y="10" width="4" height="1" fill="#10140f"/><rect x="16" y="10" width="9" height="1" fill="#ffb35c"/><rect x="25" y="10" width="9" height="1" fill="#10140f"/><rect x="34" y="10" width="2" height="1" fill="#cfc8b6"/><rect x="36" y="10" width="2" height="1" fill="#9e9786"/><rect x="38" y="10" width="1" height="1" fill="#7d7768"/><rect x="9" y="11" width="3" height="1" fill="#cfc8b6"/><rect x="12" y="11" width="22" height="1" fill="#10140f"/><rect x="34" y="11" width="2" height="1" fill="#cfc8b6"/><rect x="36" y="11" width="2" height="1" fill="#9e9786"/><rect x="38" y="11" width="1" height="1" fill="#7d7768"/><rect x="9" y="12" width="3" height="1" fill="#cfc8b6"/><rect x="12" y="12" width="6" height="1" fill="#10140f"/><rect x="18" y="12" width="13" height="1" fill="#ff8c00"/><rect x="31" y="12" width="3" height="1" fill="#10140f"/><rect x="34" y="12" width="2" height="1" fill="#cfc8b6"/><rect x="36" y="12" width="2" height="1" fill="#9e9786"/><rect x="38" y="12" width="1" height="1" fill="#7d7768"/><rect x="9" y="13" width="3" height="1" fill="#cfc8b6"/><rect x="12" y="13" width="22" height="1" fill="#10140f"/><rect x="34" y="13" width="2" height="1" fill="#cfc8b6"/><rect x="36" y="13" width="2" height="1" fill="#9e9786"/><rect x="38" y="13" width="1" height="1" fill="#7d7768"/><rect x="9" y="14" width="3" height="1" fill="#cfc8b6"/><rect x="12" y="14" width="4" height="1" fill="#10140f"/><rect x="16" y="14" width="6" height="1" fill="#ff8c00"/><rect x="22" y="14" width="4" height="1" fill="#b8600f"/><rect x="26" y="14" width="8" height="1" fill="#10140f"/><rect x="34" y="14" width="2" height="1" fill="#cfc8b6"/><rect x="36" y="14" width="2" height="1" fill="#9e9786"/><rect x="38" y="14" width="1" height="1" fill="#7d7768"/><rect x="9" y="15" width="3" height="1" fill="#cfc8b6"/><rect x="12" y="15" width="8" height="1" fill="#10140f"/><rect x="20" y="15" width="2" height="1" fill="#b8600f"/><rect x="22" y="15" width="1" height="1" fill="#0a0b0e"/><rect x="23" y="15" width="1" height="1" fill="#1b1e26"/><rect x="24" y="15" width="2" height="1" fill="#0a0b0e"/><rect x="26" y="15" width="2" height="1" fill="#b8600f"/><rect x="28" y="15" width="6" height="1" fill="#10140f"/><rect x="34" y="15" width="2" height="1" fill="#cfc8b6"/><rect x="36" y="15" width="2" height="1" fill="#9e9786"/><rect x="38" y="15" width="1" height="1" fill="#7d7768"/><rect x="9" y="16" width="3" height="1" fill="#cfc8b6"/><rect x="12" y="16" width="2" height="1" fill="#10140f"/><rect x="14" y="16" width="6" height="1" fill="#ff8c00"/><rect x="20" y="16" width="1" height="1" fill="#b8600f"/><rect x="21" y="16" width="2" height="1" fill="#0a0b0e"/><rect x="23" y="16" width="1" height="1" fill="#1b1e26"/><rect x="24" y="16" width="3" height="1" fill="#0a0b0e"/><rect x="27" y="16" width="1" height="1" fill="#b8600f"/><rect x="28" y="16" width="6" height="1" fill="#10140f"/><rect x="34" y="16" width="2" height="1" fill="#cfc8b6"/><rect x="36" y="16" width="2" height="1" fill="#9e9786"/><rect x="38" y="16" width="1" height="1" fill="#7d7768"/><rect x="9" y="17" width="3" height="1" fill="#cfc8b6"/><rect x="12" y="17" width="7" height="1" fill="#10140f"/><rect x="19" y="17" width="1" height="1" fill="#b8600f"/><rect x="20" y="17" width="3" height="1" fill="#0a0b0e"/><rect x="23" y="17" width="1" height="1" fill="#1b1e26"/><rect x="24" y="17" width="4" height="1" fill="#0a0b0e"/><rect x="28" y="17" width="1" height="1" fill="#b8600f"/><rect x="29" y="17" width="5" height="1" fill="#10140f"/><rect x="34" y="17" width="2" height="1" fill="#cfc8b6"/><rect x="36" y="17" width="2" height="1" fill="#9e9786"/><rect x="38" y="17" width="1" height="1" fill="#7d7768"/><rect x="9" y="18" width="3" height="1" fill="#cfc8b6"/><rect x="12" y="18" width="7" height="1" fill="#10140f"/><rect x="19" y="18" width="1" height="1" fill="#b8600f"/><rect x="20" y="18" width="3" height="1" fill="#0a0b0e"/><rect x="23" y="18" width="1" height="1" fill="#1b1e26"/><rect x="24" y="18" width="4" height="1" fill="#0a0b0e"/><rect x="28" y="18" width="1" height="1" fill="#b8600f"/><rect x="29" y="18" width="5" height="1" fill="#10140f"/><rect x="34" y="18" width="2" height="1" fill="#cfc8b6"/><rect x="36" y="18" width="2" height="1" fill="#9e9786"/><rect x="38" y="18" width="1" height="1" fill="#7d7768"/><rect x="9" y="19" width="4" height="1" fill="#cfc8b6"/><rect x="13" y="19" width="6" height="1" fill="#10140f"/><rect x="19" y="19" width="1" height="1" fill="#b8600f"/><rect x="20" y="19" width="3" height="1" fill="#0a0b0e"/><rect x="23" y="19" width="1" height="1" fill="#1b1e26"/><rect x="24" y="19" width="4" height="1" fill="#0a0b0e"/><rect x="28" y="19" width="1" height="1" fill="#b8600f"/><rect x="29" y="19" width="4" height="1" fill="#10140f"/><rect x="33" y="19" width="3" height="1" fill="#cfc8b6"/><rect x="36" y="19" width="2" height="1" fill="#9e9786"/><rect x="38" y="19" width="1" height="1" fill="#7d7768"/><rect x="9" y="20" width="10" height="1" fill="#cfc8b6"/><rect x="19" y="20" width="1" height="1" fill="#b8600f"/><rect x="20" y="20" width="3" height="1" fill="#0a0b0e"/><rect x="23" y="20" width="1" height="1" fill="#1b1e26"/><rect x="24" y="20" width="4" height="1" fill="#0a0b0e"/><rect x="28" y="20" width="1" height="1" fill="#b8600f"/><rect x="29" y="20" width="7" height="1" fill="#cfc8b6"/><rect x="36" y="20" width="2" height="1" fill="#9e9786"/><rect x="38" y="20" width="1" height="1" fill="#7d7768"/><rect x="9" y="21" width="10" height="1" fill="#cfc8b6"/><rect x="19" y="21" width="1" height="1" fill="#b8600f"/><rect x="20" y="21" width="3" height="1" fill="#0a0b0e"/><rect x="23" y="21" width="1" height="1" fill="#1b1e26"/><rect x="24" y="21" width="4" height="1" fill="#0a0b0e"/><rect x="28" y="21" width="1" height="1" fill="#b8600f"/><rect x="29" y="21" width="1" height="1" fill="#cfc8b6"/><rect x="30" y="21" width="4" height="1" fill="#9e9786"/><rect x="34" y="21" width="2" height="1" fill="#cfc8b6"/><rect x="36" y="21" width="2" height="1" fill="#9e9786"/><rect x="38" y="21" width="1" height="1" fill="#7d7768"/><rect x="9" y="22" width="10" height="1" fill="#cfc8b6"/><rect x="19" y="22" width="1" height="1" fill="#b8600f"/><rect x="20" y="22" width="3" height="1" fill="#0a0b0e"/><rect x="23" y="22" width="1" height="1" fill="#1b1e26"/><rect x="24" y="22" width="4" height="1" fill="#0a0b0e"/><rect x="28" y="22" width="1" height="1" fill="#b8600f"/><rect x="29" y="22" width="7" height="1" fill="#cfc8b6"/><rect x="36" y="22" width="2" height="1" fill="#9e9786"/><rect x="38" y="22" width="1" height="1" fill="#7d7768"/><rect x="9" y="23" width="11" height="1" fill="#9e9786"/><rect x="20" y="23" width="1" height="1" fill="#b8600f"/><rect x="21" y="23" width="2" height="1" fill="#0a0b0e"/><rect x="23" y="23" width="1" height="1" fill="#1b1e26"/><rect x="24" y="23" width="3" height="1" fill="#0a0b0e"/><rect x="27" y="23" width="1" height="1" fill="#b8600f"/><rect x="28" y="23" width="10" height="1" fill="#9e9786"/><rect x="38" y="23" width="1" height="1" fill="#7d7768"/><rect x="11" y="24" width="7" height="1" fill="#7d7768"/><rect x="18" y="24" width="2" height="1" fill="#b8600f"/><rect x="20" y="24" width="3" height="1" fill="#0a0b0e"/><rect x="23" y="24" width="1" height="1" fill="#1b1e26"/><rect x="24" y="24" width="4" height="1" fill="#0a0b0e"/><rect x="28" y="24" width="3" height="1" fill="#b8600f"/><rect x="31" y="24" width="8" height="1" fill="#7d7768"/><rect x="16" y="25" width="1" height="1" fill="#3b4150"/><rect x="17" y="25" width="1" height="1" fill="#b8600f"/><rect x="18" y="25" width="2" height="1" fill="#0a0b0e"/><rect x="20" y="25" width="8" height="1" fill="#1b1e26"/><rect x="28" y="25" width="3" height="1" fill="#0a0b0e"/><rect x="31" y="25" width="1" height="1" fill="#3b4150"/><rect x="0" y="26" width="9" height="1" fill="#4a4f5c"/><rect x="9" y="26" width="1" height="1" fill="#d9d3c3"/><rect x="10" y="26" width="1" height="1" fill="#a9a291"/><rect x="11" y="26" width="1" height="1" fill="#d9d3c3"/><rect x="12" y="26" width="1" height="1" fill="#a9a291"/><rect x="13" y="26" width="1" height="1" fill="#d9d3c3"/><rect x="14" y="26" width="1" height="1" fill="#b8600f"/><rect x="15" y="26" width="1" height="1" fill="#3b4150"/><rect x="16" y="26" width="16" height="1" fill="#0a0b0e"/><rect x="32" y="26" width="1" height="1" fill="#b8600f"/><rect x="33" y="26" width="1" height="1" fill="#d9d3c3"/><rect x="34" y="26" width="1" height="1" fill="#a9a291"/><rect x="35" y="26" width="1" height="1" fill="#d9d3c3"/><rect x="36" y="26" width="1" height="1" fill="#a9a291"/><rect x="37" y="26" width="2" height="1" fill="#d9d3c3"/><rect x="39" y="26" width="9" height="1" fill="#4a4f5c"/><rect x="0" y="27" width="13" height="1" fill="#4a4f5c"/><rect x="13" y="27" width="1" height="1" fill="#3b4150"/><rect x="14" y="27" width="19" height="1" fill="#0a0b0e"/><rect x="33" y="27" width="1" height="1" fill="#b8600f"/><rect x="34" y="27" width="1" height="1" fill="#3b4150"/><rect x="35" y="27" width="13" height="1" fill="#4a4f5c"/><rect x="0" y="28" width="12" height="1" fill="#30343d"/><rect x="12" y="28" width="1" height="1" fill="#3b4150"/><rect x="13" y="28" width="22" height="1" fill="#0a0b0e"/><rect x="35" y="28" width="2" height="1" fill="#3b4150"/><rect x="37" y="28" width="11" height="1" fill="#30343d"/><rect x="0" y="29" width="12" height="1" fill="#30343d"/><rect x="12" y="29" width="1" height="1" fill="#3b4150"/><rect x="13" y="29" width="10" height="1" fill="#0a0b0e"/><rect x="23" y="29" width="2" height="1" fill="#1b1e26"/><rect x="25" y="29" width="11" height="1" fill="#0a0b0e"/><rect x="36" y="29" width="1" height="1" fill="#3b4150"/><rect x="37" y="29" width="11" height="1" fill="#30343d"/><rect x="0" y="30" width="12" height="1" fill="#30343d"/><rect x="12" y="30" width="1" height="1" fill="#3b4150"/><rect x="13" y="30" width="10" height="1" fill="#0a0b0e"/><rect x="23" y="30" width="2" height="1" fill="#1b1e26"/><rect x="25" y="30" width="11" height="1" fill="#0a0b0e"/><rect x="36" y="30" width="1" height="1" fill="#3b4150"/><rect x="37" y="30" width="11" height="1" fill="#30343d"/><rect x="0" y="31" width="12" height="1" fill="#30343d"/><rect x="12" y="31" width="1" height="1" fill="#3b4150"/><rect x="13" y="31" width="3" height="1" fill="#0a0b0e"/><rect x="16" y="31" width="1" height="1" fill="#1b1e26"/><rect x="17" y="31" width="6" height="1" fill="#0a0b0e"/><rect x="23" y="31" width="2" height="1" fill="#1b1e26"/><rect x="25" y="31" width="6" height="1" fill="#0a0b0e"/><rect x="31" y="31" width="1" height="1" fill="#1b1e26"/><rect x="32" y="31" width="4" height="1" fill="#0a0b0e"/><rect x="36" y="31" width="1" height="1" fill="#3b4150"/><rect x="37" y="31" width="11" height="1" fill="#30343d"/><rect x="0" y="32" width="12" height="1" fill="#30343d"/><rect x="12" y="32" width="1" height="1" fill="#3b4150"/><rect x="13" y="32" width="3" height="1" fill="#0a0b0e"/><rect x="16" y="32" width="1" height="1" fill="#1b1e26"/><rect x="17" y="32" width="6" height="1" fill="#0a0b0e"/><rect x="23" y="32" width="2" height="1" fill="#1b1e26"/><rect x="25" y="32" width="6" height="1" fill="#0a0b0e"/><rect x="31" y="32" width="1" height="1" fill="#1b1e26"/><rect x="32" y="32" width="4" height="1" fill="#0a0b0e"/><rect x="36" y="32" width="1" height="1" fill="#3b4150"/><rect x="37" y="32" width="11" height="1" fill="#30343d"/><rect x="0" y="33" width="12" height="1" fill="#30343d"/><rect x="12" y="33" width="1" height="1" fill="#3b4150"/><rect x="13" y="33" width="3" height="1" fill="#0a0b0e"/><rect x="16" y="33" width="1" height="1" fill="#1b1e26"/><rect x="17" y="33" width="6" height="1" fill="#0a0b0e"/><rect x="23" y="33" width="2" height="1" fill="#1b1e26"/><rect x="25" y="33" width="6" height="1" fill="#0a0b0e"/><rect x="31" y="33" width="1" height="1" fill="#1b1e26"/><rect x="32" y="33" width="4" height="1" fill="#0a0b0e"/><rect x="36" y="33" width="1" height="1" fill="#3b4150"/><rect x="37" y="33" width="11" height="1" fill="#30343d"/><rect x="0" y="34" width="12" height="1" fill="#30343d"/><rect x="12" y="34" width="1" height="1" fill="#3b4150"/><rect x="13" y="34" width="3" height="1" fill="#0a0b0e"/><rect x="16" y="34" width="1" height="1" fill="#1b1e26"/><rect x="17" y="34" width="6" height="1" fill="#0a0b0e"/><rect x="23" y="34" width="2" height="1" fill="#1b1e26"/><rect x="25" y="34" width="6" height="1" fill="#0a0b0e"/><rect x="31" y="34" width="1" height="1" fill="#1b1e26"/><rect x="32" y="34" width="4" height="1" fill="#0a0b0e"/><rect x="36" y="34" width="1" height="1" fill="#3b4150"/><rect x="37" y="34" width="11" height="1" fill="#30343d"/><rect x="0" y="35" width="12" height="1" fill="#30343d"/><rect x="12" y="35" width="1" height="1" fill="#3b4150"/><rect x="13" y="35" width="3" height="1" fill="#0a0b0e"/><rect x="16" y="35" width="1" height="1" fill="#1b1e26"/><rect x="17" y="35" width="6" height="1" fill="#0a0b0e"/><rect x="23" y="35" width="2" height="1" fill="#1b1e26"/><rect x="25" y="35" width="6" height="1" fill="#0a0b0e"/><rect x="31" y="35" width="1" height="1" fill="#1b1e26"/><rect x="32" y="35" width="4" height="1" fill="#0a0b0e"/><rect x="36" y="35" width="1" height="1" fill="#3b4150"/><rect x="37" y="35" width="11" height="1" fill="#30343d"/></g><rect class="spr-cursor" x="24" y="6" width="2" height="1" fill="#ffb35c"/><g class="spr-a"><rect x="12" y="24" width="2" height="1" fill="#c58c63"/><rect x="12" y="25" width="2" height="1" fill="#0a0b0e"/><rect x="34" y="25" width="2" height="1" fill="#c58c63"/><rect x="34" y="26" width="2" height="1" fill="#0a0b0e"/><rect x="13" y="27" width="2" height="1" fill="#0a0b0e"/><rect x="33" y="27" width="2" height="1" fill="#0a0b0e"/><rect x="14" y="28" width="2" height="1" fill="#0a0b0e"/><rect x="32" y="28" width="2" height="1" fill="#0a0b0e"/></g><g class="spr-b"><rect x="34" y="24" width="2" height="1" fill="#c58c63"/><rect x="12" y="25" width="2" height="1" fill="#c58c63"/><rect x="34" y="25" width="2" height="1" fill="#0a0b0e"/><rect x="12" y="26" width="2" height="1" fill="#0a0b0e"/><rect x="13" y="27" width="2" height="1" fill="#0a0b0e"/><rect x="33" y="27" width="2" height="1" fill="#0a0b0e"/><rect x="14" y="28" width="2" height="1" fill="#0a0b0e"/><rect x="32" y="28" width="2" height="1" fill="#0a0b0e"/></g></svg>
+      <div>
+        <p class="clock" aria-hidden="true">28:80</p>
+        <p class="phrase"><span lang="es">La noche es larga para quien se queda despierto.</span><span lang="en">The night is long for those who stay awake.</span></p>
+      </div>
+    </div>
+    <p><a href="https://pacha2880.github.io/pachablog/"><span lang="es">Blog</span><span lang="en">Blog (Spanish)</span></a></p>
+  </footer>
+
+  <script>
+    (function () {
+      var d = document.documentElement;
+      var titles = { es: "Rodrigo Salguero, Software Engineer", en: "Rodrigo Salguero, Software Engineer" };
+      function dark() { var t = d.getAttribute("data-theme"); return t ? t === "dark" : d.classList.contains("night") || matchMedia("(prefers-color-scheme: dark)").matches; }
+      var tb = document.getElementById("theme-btn");
+      function syncTheme() { tb.setAttribute("aria-pressed", String(dark())); }
+      syncTheme();
+      tb.addEventListener("click", function () {
+        var next = dark() ? "light" : "dark";
+        d.setAttribute("data-theme", next); localStorage.setItem("pacha_theme", next); syncTheme();
+      });
+      document.getElementById("lang-btn").addEventListener("click", function () {
+        var next = d.lang === "es" ? "en" : "es";
+        d.lang = next; localStorage.setItem("pacha_lang", next); document.title = titles[next];
       });
     })();
   </script>
-
-
-  <script>
-    document.addEventListener("DOMContentLoaded", function () {
-
-      const fondos = [
-        // Fondo original fucsia ↔ azul
-        "linear-gradient(90deg, #001b7a 0%, #ff00a8 50%, #001b7a 100%)",
-
-        // Cian ↔ dorado ↔ cian
-        "linear-gradient(90deg, #00eaff 0%, #ffd700 50%, #00eaff 100%)",
-
-        // Variantes extra (opcional)
-        "linear-gradient(90deg, #6a00ff 0%, #ff008c 50%, #6a00ff 100%)",
-        "linear-gradient(90deg, #0099ff 0%, #00ff99 50%, #0099ff 100%)"
-      ];
-
-      const elegido = fondos[Math.floor(Math.random() * fondos.length)];
-      document.body.style.background = elegido;
-      document.body.style.backgroundAttachment = "fixed";
-    });
-  </script>
-
+</body>
 </html>
