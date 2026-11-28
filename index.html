@@ -118,12 +118,7 @@
     .skills dd { margin: 0; }
     @media (max-width: 30rem) { .skills { grid-template-columns: 1fr; } .skills dd { margin-bottom: .5rem; } }
 
-    .rainbow { border-radius: 14px; padding: .5rem 1.25rem 1rem; border: 1px solid var(--rule); background: linear-gradient(90deg, #ff000038, #ff7f0038, #ffff0038, #00ff0038, #007fff38, #0000ff38, #8b00ff38); background-size: 400% 100%; animation: wave 14s ease-in-out infinite; }
-    .rainbow summary h2 { margin: 0; font-size: 1.35rem; }
-    .rainbow summary { list-style: none; gap: .6rem; }
-    .rainbow summary::-webkit-details-marker { display: none; }
-    .rainbow summary::before { content: "▸"; transition: transform .2s; }
-    .rainbow[open] summary::before { transform: rotate(90deg); }
+    .rainbow { border-radius: 14px; padding: 1.25rem 1.25rem 1rem; border: 1px solid var(--rule); background: linear-gradient(90deg, #ff000038, #ff7f0038, #ffff0038, #00ff0038, #007fff38, #0000ff38, #8b00ff38); background-size: 400% 100%; animation: wave 14s ease-in-out infinite; }
     .games { list-style: none; padding: 0; display: flex; flex-wrap: wrap; gap: 0 1.25rem; margin: 0; }
     @keyframes wave { 0%, 100% { background-position: 0% 50%; } 50% { background-position: 100% 50%; } }
 
@@ -146,6 +141,134 @@
     .night-shift p { margin: 0 0 .4rem; }
     .night-shift .phrase { font-size: 1.05rem; color: var(--ink); }
     @media (max-width: 40rem) { .bar { position: static; } section { scroll-margin-top: 0; } }
+    .t-on { display: none; }
+    :root[data-theme="light"] .t-on { display: inline; }
+    :root[data-theme="light"] .t-off { display: none; }
+    .rainbow h2 { margin: 0 0 .25rem; font-size: 1.35rem; }
+    /* ---- iteration 1 (visual + UX-laws review) ---- */
+    .sr { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
+    .bar-cv { display: none; }
+    .cf { font: 400 .85rem var(--sans); color: var(--muted); margin-left: .4rem; }
+    .avail { color: var(--ink); }
+    .avail::before { content: ""; display: inline-block; width: .55rem; height: .55rem; border-radius: 50%; background: var(--accent); margin-right: .5rem; vertical-align: .08em; }
+    .chip { display: inline-block; border: 1px solid var(--accent); color: var(--accent); border-radius: 999px; padding: .05rem .55rem; margin-right: .4rem; font-size: .8rem; line-height: 1.5; }
+    .hero { padding-top: clamp(2rem, 5vw, 3.5rem); }
+    section > h2::after { content: ""; display: block; width: 2.5rem; height: 3px; background: var(--accent); margin-top: .5rem; border-radius: 2px; }
+    .links a, .contact a, .games a, .more a, footer a { padding: .7rem 0; }
+    .contact { gap: .6rem; }
+    .contact a { display: inline-flex; align-items: center; min-height: 44px; padding: .5rem 1rem; border: 1px solid var(--rule); border-radius: 8px; background: var(--panel); text-decoration: none; }
+    .contact a:hover { border-color: var(--accent); }
+    .contact li:first-child a, .contact li:first-child a:hover { background: var(--accent); border-color: var(--accent); color: var(--on-accent); font-weight: 700; }
+    .featured > li { padding: 1.1rem 1.15rem; }
+    .tech { line-height: 1.45; }
+    .rainbow { background-size: 200% 100%; }
+    :root:not([data-theme="light"]) .rainbow { background-image: linear-gradient(90deg, #ff000050, #ff7f0050, #ffff0038, #00ff0038, #007fff50, #0000ff50, #8b00ff50); }
+    .games { display: grid; grid-template-columns: repeat(auto-fill, minmax(9.5rem, 1fr)); gap: 0 1rem; }
+    .night-shift { margin-bottom: 1.25rem; }
+    .clock { margin: .35rem 0 .4rem !important; }
+    @media (min-width: 62rem) {
+      .hero { display: grid; grid-template-columns: minmax(0, 1fr) 17rem; column-gap: 3.5rem; }
+      .hero > * { grid-column: 1; }
+      .hero .stats { grid-column: 2; grid-row: 1 / span 7; grid-template-columns: 1fr; align-self: start; margin-top: .75rem; }
+    }
+    @media (max-width: 40rem) {
+      .bar { position: sticky; flex-wrap: nowrap; padding: .4rem 0; }
+      .bar nav { display: none; }
+      .bar-cv { display: inline-flex; margin-right: auto; padding: .5rem 1rem; }
+      .controls { width: 100%; gap: .4rem; }
+      .controls button { padding: .5rem .8rem; }
+      section { margin-top: 2.75rem; scroll-margin-top: 4rem; }
+      h2 { font-size: 1.45rem; margin-bottom: 1rem; }
+      .jobs > li { padding: .9rem 0; }
+      .jobs ul li { line-height: 1.5; margin: .35rem 0; }
+      .when { margin: 0 0 .1rem; }
+    }
+    @media (max-width: 34rem) {
+      .cta { display: grid; grid-template-columns: repeat(3, 1fr); gap: .5rem; }
+      .cta .btn { justify-content: center; padding: .5rem .4rem; }
+      .cta .btn.primary { grid-column: 1 / -1; }
+      .stats { gap: .5rem; }
+      .stats li { padding: .8rem .85rem; font-size: .875rem; }
+      .stats strong { font-size: 1.5rem; line-height: 1.1; margin-bottom: .35rem; }
+      .sprite { width: 176px; }
+    }
+    @media (min-width: 62rem) { .hero h1 { font-size: clamp(2.6rem, 6vw, 4.2rem); } }
+    /* ---- iteration 2 ---- */
+    .stats li:first-child { border-color: var(--accent); }
+    .hero { margin-top: 0; padding-top: clamp(1.5rem, 4vw, 2.5rem); }
+    .bar .bar-cv { background: transparent; color: var(--accent); border-color: var(--accent); font-weight: 700; }
+    .bar .bar-cv:hover { background: var(--accent); color: var(--on-accent); }
+    .jobs h3 { font-weight: 650; }
+    .co { color: var(--accent); font-weight: 750; }
+    .cf { font-size: .8rem; margin-left: .5rem; }
+    .rainbow { background-image: linear-gradient(90deg, #ff000038, #ff7f0038, #ffff0030, #00ff0030, #007fff38, #0000ff38, #8b00ff38, #ff000038, #ff7f0038, #ffff0030, #00ff0030, #007fff38, #0000ff38, #8b00ff38, #ff000038); background-size: 200% 100%; animation: wave2 18s linear infinite; }
+    :root:not([data-theme="light"]) .rainbow { background-image: linear-gradient(90deg, #ff000055, #ff7f0055, #ffff0040, #00ff0040, #007fff55, #0000ff55, #8b00ff55, #ff000055, #ff7f0055, #ffff0040, #00ff0040, #007fff55, #0000ff55, #8b00ff55, #ff000055); }
+    @keyframes wave2 { from { background-position: 0% 50%; } to { background-position: 100% 50%; } }
+    .games { grid-template-columns: 1fr 1fr; gap: 0 1rem; }
+    .games li { min-width: 0; }
+    @media (min-width: 34rem) { .games { grid-template-columns: repeat(3, 1fr); } }
+    .featured .links { padding-top: 0; }
+    .featured p.links { margin-top: auto; }
+    .featured .tech .chip { display: table; margin: .2rem 0 .3rem; }
+    footer { margin-top: 2.75rem; padding-top: 1.25rem; }
+    .sprite { display: block; margin-bottom: .5rem; }
+    .night-shift .phrase { margin-bottom: .75rem; }
+    @media (min-width: 62rem) { .stats li { padding: .8rem 1rem; } }
+    .co { display: block; margin-top: .1rem; }
+    /* ---- iteration 3 ---- */
+    h1, h2, h3, .role, .tagline, .where { text-wrap: balance; }
+    p, li, dd { text-wrap: pretty; }
+    .stack { color: var(--muted); font-size: .95rem; margin: -.6rem 0 1.4rem; max-width: 40rem; }
+    .handle a { text-decoration: underline; text-decoration-thickness: 2px; text-underline-offset: .2em; }
+    .cf { font-size: .875rem; }
+    .jobs ul li::marker { color: var(--muted); }
+    .rainbow { position: relative; overflow: hidden; }
+    .rainbow::before { content: ""; position: absolute; inset: 0 0 auto 0; height: 6px; background: linear-gradient(90deg, #f00, #ff7f00, #ffe000, #00d000, #0080ff, #2020ff, #8b00ff); }
+    .games a { display: flex; align-items: center; min-height: 44px; padding: .2rem 0; }
+    @media (max-width: 23rem) { .games { grid-template-columns: 1fr; } }
+    .more summary { display: inline-flex; gap: .5rem; padding: .5rem 1rem; border: 1px solid var(--rule); border-radius: 8px; background: var(--panel); list-style: none; }
+    .more summary::-webkit-details-marker { display: none; }
+    .more summary::before { content: "▸"; transition: transform .15s; }
+    .more[open] summary::before { transform: rotate(90deg); }
+    .more summary:hover { border-color: var(--accent); }
+    .featured p.links { margin-top: .4rem; }
+    footer .blog { margin: 0 0 1.25rem; }
+    footer { padding-bottom: .5rem; }
+    /* ---- iteration 4 ---- */
+    h3, .tagline, .where, p, li, dd { text-wrap: wrap; }
+    h1, h2, .role, .stack { text-wrap: balance; }
+    .stack { font-size: .85rem; line-height: 1.5; }
+    .jobs > li:last-child { padding-bottom: 0; }
+    @media (max-width: 26rem) { .games { grid-template-columns: 1fr; } .games a { min-height: 40px; } }
+    footer { border-top: 0; margin-top: 1.25rem; padding-top: 0; }
+    footer .blog { margin: 0; }
+    footer .blog a { display: inline-flex; align-items: center; min-height: 44px; padding: .5rem 1rem; border: 1px solid var(--rule); border-radius: 8px; background: var(--panel); text-decoration: none; }
+    footer .blog a:hover { border-color: var(--accent); color: var(--ink); }
+    .night-shift { margin-top: 1.75rem; padding-top: 1.75rem; border-top: 1px solid var(--rule); }
+    .featured p.links { margin-top: auto; padding-top: .4rem; }
+    .bar-cv { display: inline-flex; align-items: center; min-height: 44px; padding: .5rem 1rem; }
+    @media (max-width: 34rem) {
+      .hero { padding-top: 1rem; }
+      .tagline { font-size: 1.05rem; line-height: 1.5; }
+      .role { margin-bottom: .8rem; }
+      .avail { margin-bottom: .9rem; }
+      .stack { margin: 0 0 1.1rem; }
+      .cta { margin-bottom: 1.5rem; }
+    }
+    /* ---- iteration 5 ---- */
+    .stack { font-size: .92rem; color: var(--ink); opacity: .85; }
+    @media (min-width: 62rem) { .hero + section { margin-top: 3.25rem; } }
+    @media (max-width: 34rem) {
+      .contact { display: grid; grid-template-columns: repeat(3, 1fr); gap: .5rem; }
+      .contact li:first-child { grid-column: 1 / -1; }
+      .contact li a { display: flex; justify-content: center; padding: .5rem .3rem; font-size: .95rem; }
+    }
+    @media (max-width: 23rem) {
+      .role { font-size: 1.12rem; }
+      .jobs h3 { font-size: 1.05rem; }
+      .where { font-size: .9rem; }
+      .contact { grid-template-columns: 1fr 1fr; }
+    }
 
   </style>
 </head>
@@ -160,9 +283,10 @@
       <a href="#contacto"><span lang="es">Contacto</span><span lang="en">Contact</span></a>
     </nav>
     <div class="controls">
-      <button id="lang-btn" type="button"><span lang="es">English</span><span lang="en">Español</span></button>
-      <button id="theme-btn" type="button" aria-pressed="false">
-        <span lang="es">Encender la luz</span><span lang="en">Lights on</span>
+      <a class="btn primary bar-cv" href="CV_Rodrigo_Salguero.pdf">CV</a>
+      <button id="lang-btn" type="button"><span lang="es">EN<span class="sr"> (English)</span></span><span lang="en">ES<span class="sr"> (Español)</span></span></button>
+      <button id="theme-btn" type="button">
+        <span class="t-off"><span lang="es">Encender la luz</span><span lang="en">Lights on</span></span><span class="t-on"><span lang="es">Apagar la luz</span><span lang="en">Lights off</span></span>
       </button>
     </div>
   </header>
@@ -170,7 +294,7 @@
   <main id="main">
     <section class="hero" aria-labelledby="nombre">
       <h1 id="nombre">Rodrigo Salguero</h1>
-      <p class="handle"><a href="https://codeforces.com/profile/pacha2880">pacha2880</a></p>
+      <p class="handle"><a href="https://codeforces.com/profile/pacha2880">pacha2880</a> <span class="cf">Codeforces</span></p>
       <p class="role">Software Engineer<br><span lang="es">2 veces finalista mundial de la ICPC</span><span lang="en">2× ICPC World Finalist</span></p>
       <p class="tagline">
         <span lang="es">Programador competitivo de noche, ingeniero de software de día. Construyo backends, integraciones y herramientas con IA, y entreno equipos de la ICPC desde 2018.</span>
@@ -180,6 +304,7 @@
         <span lang="es">Disponible para trabajo remoto desde Cochabamba, Bolivia (UTC−4).</span>
         <span lang="en">Available for remote work from Cochabamba, Bolivia (UTC−4).</span>
       </p>
+      <p class="stack">Python, TypeScript, C++, FastAPI, PostgreSQL, Docker, Kubernetes, AWS Lambda</p>
       <p class="cta">
         <a class="btn primary" href="CV_Rodrigo_Salguero.pdf"><span lang="es">Ver CV (PDF)</span><span lang="en">View CV (PDF)</span></a>
         <a class="btn" href="mailto:pacha2881@gmail.com">Email</a>
@@ -189,8 +314,8 @@
       <ul class="stats">
         <li><strong>2×</strong> <span lang="es">finalista mundial ICPC (2022, 2024)</span><span lang="en">ICPC World Finalist (2022, 2024)</span></li>
         <li><strong>2185</strong> <span lang="es">rating máximo en Codeforces (Master)</span><span lang="en">peak Codeforces rating (Master)</span></li>
-        <li><strong>3.º</strong><span lang="es">en la ICPC Sudamérica Sur</span><span lang="en">at ICPC South America/South</span></li>
-        <li><strong>11.º</strong> <span lang="es">mundial en IEEEXtreme</span><span lang="en">worldwide at IEEEXtreme</span></li>
+        <li><strong><span lang="es">3.º</span><span lang="en">3rd</span></strong> <span lang="es">en la ICPC Sudamérica Sur</span><span lang="en">at ICPC South America/South</span></li>
+        <li><strong><span lang="es">11.º</span><span lang="en">11th</span></strong> <span lang="es">mundial en IEEEXtreme</span><span lang="en">worldwide at IEEEXtreme</span></li>
       </ul>
     </section>
 
@@ -200,7 +325,7 @@
         <li>
           <p class="when"><span lang="es">jun. 2026 – sep. 2026</span><span lang="en">Jun 2026 – Sep 2026</span></p>
           <div>
-            <h3>Integrations Engineer, Canals AI</h3>
+            <h3>Integrations Engineer<span class="sr">, </span><span class="co">Canals AI</span></h3>
             <p class="where"><span lang="es">Remoto (EE. UU.)</span><span lang="en">Remote (US)</span></p>
             <ul>
               <li><span lang="es">Construí la mayor parte de 3 integraciones en producción con ERP, CRM y helpdesk, con APIs REST, OAuth y webhooks.</span><span lang="en">Built most of 3 production ERP, CRM and helpdesk integrations with REST APIs, OAuth and webhooks.</span></li>
@@ -212,7 +337,7 @@
         <li>
           <p class="when"><span lang="es">feb. 2026 – abr. 2026</span><span lang="en">Feb 2026 – Apr 2026</span></p>
           <div>
-            <h3><span lang="es">Software Robotics Engineer (freelance), startup internacional de robótica</span><span lang="en">Software Robotics Engineer (freelance), international robotics startup</span></h3>
+            <h3>Software Robotics Engineer (freelance)<span class="sr">, </span><span class="co"><span lang="es">startup internacional de robótica</span><span lang="en">international robotics startup</span></span></h3>
             <p class="where"><span lang="es">Remoto (EE. UU.)</span><span lang="en">Remote (US)</span></p>
             <ul>
               <li><span lang="es">App web en Flask para teleoperar y monitorear un brazo robótico con Arduino, con video en vivo y control desde el celular.</span><span lang="en">Flask web app to teleoperate and monitor an Arduino-controlled robotic arm, with live video and mobile control.</span></li>
@@ -222,7 +347,7 @@
         <li>
           <p class="when"><span lang="es">ago. 2024 – dic. 2025</span><span lang="en">Aug 2024 – Dec 2025</span></p>
           <div>
-            <h3>Simulation &amp; Integration Engineer, Volvo Group Trucks Technology</h3>
+            <h3>Simulation &amp; Integration Engineer<span class="sr">, </span><span class="co">Volvo Group Trucks Technology</span></h3>
             <p class="where"><span lang="es">Gotemburgo, Suecia (pasante hasta jul. 2025)</span><span lang="en">Gothenburg, Sweden (intern until Jul 2025)</span></p>
             <ul>
               <li><span lang="es">Responsable de pipelines CI/CD de simulación SIL para validar ADAS: resimulaciones continuas y corridas quincenales en Kubernetes sobre terabytes de datos.</span><span lang="en">Owned SIL CI/CD pipelines for ADAS validation: continuous resimulations plus bi-weekly Kubernetes runs over terabytes of data.</span></li>
@@ -234,7 +359,7 @@
         <li>
           <p class="when"><span lang="es">abr. 2022 – dic. 2022</span><span lang="en">Apr 2022 – Dec 2022</span></p>
           <div>
-            <h3>Python Back-End Developer, Zebrands</h3>
+            <h3>Python Back-End Developer<span class="sr">, </span><span class="co">Zebrands</span></h3>
             <p class="where"><span lang="es">Remoto (México)</span><span lang="en">Remote (Mexico)</span></p>
             <ul>
               <li><span lang="es">Endpoints de API en Flask para integrar pasarelas de pago, con tests unitarios y AWS Lambda.</span><span lang="en">Flask API endpoints for payment gateway integrations, with unit tests and AWS Lambda.</span></li>
@@ -245,7 +370,7 @@
         <li>
           <p class="when"><span lang="es">ene. 2019 – jul. 2022</span><span lang="en">Jan 2019 – Jul 2022</span></p>
           <div>
-            <h3><span lang="es">Auxiliar de docencia, Universidad Mayor de San Simón</span><span lang="en">Teaching Assistant, Universidad Mayor de San Simón</span></h3>
+            <h3><span lang="es">Auxiliar de docencia</span><span lang="en">Teaching Assistant</span><span class="sr">, </span><span class="co">Universidad Mayor de San Simón</span></h3>
             <p class="where"><span lang="es">Introducción a la Programación y Estructuras de Datos</span><span lang="en">Intro to Programming and Data Structures</span></p>
           </div>
         </li>
@@ -257,9 +382,9 @@
       <ul class="featured">
         <li>
           <h3>Taekwondo Tournament Manager</h3>
-          <p class="tech"><span lang="es">En construcción.</span><span lang="en">Work in progress.</span> Python, FastAPI, SQLAlchemy, PostgreSQL</p>
+          <p class="tech"><span class="chip"><span lang="es">En construcción</span><span lang="en">Work in progress</span></span> Python, FastAPI, SQLAlchemy, PostgreSQL</p>
           <p><span lang="es">API REST para inscripción, llaves y puntaje, pensada para torneos de 100 a 200 atletas. JWT, documentación OpenAPI y CI con más de 200 tests sobre SQLite y PostgreSQL. Desplegada en Render y Neon.</span><span lang="en">REST API for registration, brackets and scoring, designed for tournaments of 100–200 athletes. JWT auth, OpenAPI docs and CI running 200+ tests on SQLite and PostgreSQL. Deployed on Render and Neon.</span></p>
-          <p class="links"><a href="https://github.com/pacha2880/taekwondo-tournament-manager"><span lang="es">Código</span><span lang="en">Code</span></a> <a href="https://taekwondo-tournament-manager.onrender.com/docs"><span lang="es">Docs de la API (tarda ~40 s en despertar)</span><span lang="en">API docs (takes ~40 s to wake up)</span></a></p>
+          <p class="links"><a href="https://github.com/pacha2880/taekwondo-tournament-manager"><span lang="es">Código</span><span lang="en">Code</span></a></p>
         </li>
         <li>
           <h3>PachaContests</h3>
@@ -322,8 +447,8 @@
     </section>
 
     <section id="juegos" aria-labelledby="h-games">
-      <details class="rainbow">
-        <summary><h2 id="h-games"><span lang="es">Rincón de juegos</span><span lang="en">Games corner</span></h2></summary>
+      <div class="rainbow">
+        <h2 id="h-games"><span lang="es">Rincón de juegos</span><span lang="en">Games corner</span></h2>
         <p><span lang="es">Prototipos de la universidad para jugar y probar ideas. Nada de esto va a producción.</span><span lang="en">University prototypes built to play and try ideas. None of this goes to production.</span></p>
         <ul class="games">
           <li><a href="https://pacha2880.github.io/space-challenge/">Space Challenge</a></li>
@@ -333,7 +458,7 @@
           <li><a href="https://pacha2880.github.io/Pagina-Algoritmos/"><span lang="es">Página de algoritmos</span><span lang="en">Algorithms page</span></a></li>
           <li><a href="https://pacha2880.github.io/mi-primer-sitio-web/"><span lang="es">Mi primera página web</span><span lang="en">My first webpage</span></a></li>
         </ul>
-      </details>
+      </div>
     </section>
 
     <section id="contacto" aria-labelledby="h-contact">
@@ -350,6 +475,7 @@
   </main>
 
   <footer>
+    <p class="blog"><a href="https://pacha2880.github.io/pachablog/"><span lang="es">Blog personal</span><span lang="en">Personal blog (Spanish)</span></a></p>
     <div class="night-shift">
       <svg class="sprite" viewBox="0 0 48 36" width="192" height="144" shape-rendering="crispEdges" aria-hidden="true" focusable="false"><g class="spr-base"><rect x="9" y="1" width="28" height="1" fill="#cfc8b6"/><rect x="9" y="2" width="27" height="1" fill="#cfc8b6"/><rect x="36" y="2" width="2" height="1" fill="#9e9786"/><rect x="9" y="3" width="27" height="1" fill="#cfc8b6"/><rect x="36" y="3" width="2" height="1" fill="#9e9786"/><rect x="38" y="3" width="1" height="1" fill="#7d7768"/><rect x="9" y="4" width="4" height="1" fill="#cfc8b6"/><rect x="13" y="4" width="20" height="1" fill="#10140f"/><rect x="33" y="4" width="3" height="1" fill="#cfc8b6"/><rect x="36" y="4" width="2" height="1" fill="#9e9786"/><rect x="38" y="4" width="1" height="1" fill="#7d7768"/><rect x="9" y="5" width="3" height="1" fill="#cfc8b6"/><rect x="12" y="5" width="22" height="1" fill="#10140f"/><rect x="34" y="5" width="2" height="1" fill="#cfc8b6"/><rect x="36" y="5" width="2" height="1" fill="#9e9786"/><rect x="38" y="5" width="1" height="1" fill="#7d7768"/><rect x="9" y="6" width="3" height="1" fill="#cfc8b6"/><rect x="12" y="6" width="2" height="1" fill="#10140f"/><rect x="14" y="6" width="9" height="1" fill="#ff8c00"/><rect x="23" y="6" width="11" height="1" fill="#10140f"/><rect x="34" y="6" width="2" height="1" fill="#cfc8b6"/><rect x="36" y="6" width="2" height="1" fill="#9e9786"/><rect x="38" y="6" width="1" height="1" fill="#7d7768"/><rect x="9" y="7" width="3" height="1" fill="#cfc8b6"/><rect x="12" y="7" width="22" height="1" fill="#10140f"/><rect x="34" y="7" width="2" height="1" fill="#cfc8b6"/><rect x="36" y="7" width="2" height="1" fill="#9e9786"/><rect x="38" y="7" width="1" height="1" fill="#7d7768"/><rect x="9" y="8" width="3" height="1" fill="#cfc8b6"/><rect x="12" y="8" width="4" height="1" fill="#10140f"/><rect x="16" y="8" width="12" height="1" fill="#ff8c00"/><rect x="28" y="8" width="6" height="1" fill="#10140f"/><rect x="34" y="8" width="2" height="1" fill="#cfc8b6"/><rect x="36" y="8" width="2" height="1" fill="#9e9786"/><rect x="38" y="8" width="1" height="1" fill="#7d7768"/><rect x="9" y="9" width="3" height="1" fill="#cfc8b6"/><rect x="12" y="9" width="22" height="1" fill="#10140f"/><rect x="34" y="9" width="2" height="1" fill="#cfc8b6"/><rect x="36" y="9" width="2" height="1" fill="#9e9786"/><rect x="38" y="9" width="1" height="1" fill="#7d7768"/><rect x="9" y="10" width="3" height="1" fill="#cfc8b6"/><rect x="12" y="10" width="4" height="1" fill="#10140f"/><rect x="16" y="10" width="9" height="1" fill="#ffb35c"/><rect x="25" y="10" width="9" height="1" fill="#10140f"/><rect x="34" y="10" width="2" height="1" fill="#cfc8b6"/><rect x="36" y="10" width="2" height="1" fill="#9e9786"/><rect x="38" y="10" width="1" height="1" fill="#7d7768"/><rect x="9" y="11" width="3" height="1" fill="#cfc8b6"/><rect x="12" y="11" width="22" height="1" fill="#10140f"/><rect x="34" y="11" width="2" height="1" fill="#cfc8b6"/><rect x="36" y="11" width="2" height="1" fill="#9e9786"/><rect x="38" y="11" width="1" height="1" fill="#7d7768"/><rect x="9" y="12" width="3" height="1" fill="#cfc8b6"/><rect x="12" y="12" width="6" height="1" fill="#10140f"/><rect x="18" y="12" width="13" height="1" fill="#ff8c00"/><rect x="31" y="12" width="3" height="1" fill="#10140f"/><rect x="34" y="12" width="2" height="1" fill="#cfc8b6"/><rect x="36" y="12" width="2" height="1" fill="#9e9786"/><rect x="38" y="12" width="1" height="1" fill="#7d7768"/><rect x="9" y="13" width="3" height="1" fill="#cfc8b6"/><rect x="12" y="13" width="22" height="1" fill="#10140f"/><rect x="34" y="13" width="2" height="1" fill="#cfc8b6"/><rect x="36" y="13" width="2" height="1" fill="#9e9786"/><rect x="38" y="13" width="1" height="1" fill="#7d7768"/><rect x="9" y="14" width="3" height="1" fill="#cfc8b6"/><rect x="12" y="14" width="4" height="1" fill="#10140f"/><rect x="16" y="14" width="6" height="1" fill="#ff8c00"/><rect x="22" y="14" width="4" height="1" fill="#b8600f"/><rect x="26" y="14" width="8" height="1" fill="#10140f"/><rect x="34" y="14" width="2" height="1" fill="#cfc8b6"/><rect x="36" y="14" width="2" height="1" fill="#9e9786"/><rect x="38" y="14" width="1" height="1" fill="#7d7768"/><rect x="9" y="15" width="3" height="1" fill="#cfc8b6"/><rect x="12" y="15" width="8" height="1" fill="#10140f"/><rect x="20" y="15" width="2" height="1" fill="#b8600f"/><rect x="22" y="15" width="1" height="1" fill="#0a0b0e"/><rect x="23" y="15" width="1" height="1" fill="#1b1e26"/><rect x="24" y="15" width="2" height="1" fill="#0a0b0e"/><rect x="26" y="15" width="2" height="1" fill="#b8600f"/><rect x="28" y="15" width="6" height="1" fill="#10140f"/><rect x="34" y="15" width="2" height="1" fill="#cfc8b6"/><rect x="36" y="15" width="2" height="1" fill="#9e9786"/><rect x="38" y="15" width="1" height="1" fill="#7d7768"/><rect x="9" y="16" width="3" height="1" fill="#cfc8b6"/><rect x="12" y="16" width="2" height="1" fill="#10140f"/><rect x="14" y="16" width="6" height="1" fill="#ff8c00"/><rect x="20" y="16" width="1" height="1" fill="#b8600f"/><rect x="21" y="16" width="2" height="1" fill="#0a0b0e"/><rect x="23" y="16" width="1" height="1" fill="#1b1e26"/><rect x="24" y="16" width="3" height="1" fill="#0a0b0e"/><rect x="27" y="16" width="1" height="1" fill="#b8600f"/><rect x="28" y="16" width="6" height="1" fill="#10140f"/><rect x="34" y="16" width="2" height="1" fill="#cfc8b6"/><rect x="36" y="16" width="2" height="1" fill="#9e9786"/><rect x="38" y="16" width="1" height="1" fill="#7d7768"/><rect x="9" y="17" width="3" height="1" fill="#cfc8b6"/><rect x="12" y="17" width="7" height="1" fill="#10140f"/><rect x="19" y="17" width="1" height="1" fill="#b8600f"/><rect x="20" y="17" width="3" height="1" fill="#0a0b0e"/><rect x="23" y="17" width="1" height="1" fill="#1b1e26"/><rect x="24" y="17" width="4" height="1" fill="#0a0b0e"/><rect x="28" y="17" width="1" height="1" fill="#b8600f"/><rect x="29" y="17" width="5" height="1" fill="#10140f"/><rect x="34" y="17" width="2" height="1" fill="#cfc8b6"/><rect x="36" y="17" width="2" height="1" fill="#9e9786"/><rect x="38" y="17" width="1" height="1" fill="#7d7768"/><rect x="9" y="18" width="3" height="1" fill="#cfc8b6"/><rect x="12" y="18" width="7" height="1" fill="#10140f"/><rect x="19" y="18" width="1" height="1" fill="#b8600f"/><rect x="20" y="18" width="3" height="1" fill="#0a0b0e"/><rect x="23" y="18" width="1" height="1" fill="#1b1e26"/><rect x="24" y="18" width="4" height="1" fill="#0a0b0e"/><rect x="28" y="18" width="1" height="1" fill="#b8600f"/><rect x="29" y="18" width="5" height="1" fill="#10140f"/><rect x="34" y="18" width="2" height="1" fill="#cfc8b6"/><rect x="36" y="18" width="2" height="1" fill="#9e9786"/><rect x="38" y="18" width="1" height="1" fill="#7d7768"/><rect x="9" y="19" width="4" height="1" fill="#cfc8b6"/><rect x="13" y="19" width="6" height="1" fill="#10140f"/><rect x="19" y="19" width="1" height="1" fill="#b8600f"/><rect x="20" y="19" width="3" height="1" fill="#0a0b0e"/><rect x="23" y="19" width="1" height="1" fill="#1b1e26"/><rect x="24" y="19" width="4" height="1" fill="#0a0b0e"/><rect x="28" y="19" width="1" height="1" fill="#b8600f"/><rect x="29" y="19" width="4" height="1" fill="#10140f"/><rect x="33" y="19" width="3" height="1" fill="#cfc8b6"/><rect x="36" y="19" width="2" height="1" fill="#9e9786"/><rect x="38" y="19" width="1" height="1" fill="#7d7768"/><rect x="9" y="20" width="10" height="1" fill="#cfc8b6"/><rect x="19" y="20" width="1" height="1" fill="#b8600f"/><rect x="20" y="20" width="3" height="1" fill="#0a0b0e"/><rect x="23" y="20" width="1" height="1" fill="#1b1e26"/><rect x="24" y="20" width="4" height="1" fill="#0a0b0e"/><rect x="28" y="20" width="1" height="1" fill="#b8600f"/><rect x="29" y="20" width="7" height="1" fill="#cfc8b6"/><rect x="36" y="20" width="2" height="1" fill="#9e9786"/><rect x="38" y="20" width="1" height="1" fill="#7d7768"/><rect x="9" y="21" width="10" height="1" fill="#cfc8b6"/><rect x="19" y="21" width="1" height="1" fill="#b8600f"/><rect x="20" y="21" width="3" height="1" fill="#0a0b0e"/><rect x="23" y="21" width="1" height="1" fill="#1b1e26"/><rect x="24" y="21" width="4" height="1" fill="#0a0b0e"/><rect x="28" y="21" width="1" height="1" fill="#b8600f"/><rect x="29" y="21" width="1" height="1" fill="#cfc8b6"/><rect x="30" y="21" width="4" height="1" fill="#9e9786"/><rect x="34" y="21" width="2" height="1" fill="#cfc8b6"/><rect x="36" y="21" width="2" height="1" fill="#9e9786"/><rect x="38" y="21" width="1" height="1" fill="#7d7768"/><rect x="9" y="22" width="10" height="1" fill="#cfc8b6"/><rect x="19" y="22" width="1" height="1" fill="#b8600f"/><rect x="20" y="22" width="3" height="1" fill="#0a0b0e"/><rect x="23" y="22" width="1" height="1" fill="#1b1e26"/><rect x="24" y="22" width="4" height="1" fill="#0a0b0e"/><rect x="28" y="22" width="1" height="1" fill="#b8600f"/><rect x="29" y="22" width="7" height="1" fill="#cfc8b6"/><rect x="36" y="22" width="2" height="1" fill="#9e9786"/><rect x="38" y="22" width="1" height="1" fill="#7d7768"/><rect x="9" y="23" width="11" height="1" fill="#9e9786"/><rect x="20" y="23" width="1" height="1" fill="#b8600f"/><rect x="21" y="23" width="2" height="1" fill="#0a0b0e"/><rect x="23" y="23" width="1" height="1" fill="#1b1e26"/><rect x="24" y="23" width="3" height="1" fill="#0a0b0e"/><rect x="27" y="23" width="1" height="1" fill="#b8600f"/><rect x="28" y="23" width="10" height="1" fill="#9e9786"/><rect x="38" y="23" width="1" height="1" fill="#7d7768"/><rect x="11" y="24" width="7" height="1" fill="#7d7768"/><rect x="18" y="24" width="2" height="1" fill="#b8600f"/><rect x="20" y="24" width="3" height="1" fill="#0a0b0e"/><rect x="23" y="24" width="1" height="1" fill="#1b1e26"/><rect x="24" y="24" width="4" height="1" fill="#0a0b0e"/><rect x="28" y="24" width="3" height="1" fill="#b8600f"/><rect x="31" y="24" width="8" height="1" fill="#7d7768"/><rect x="16" y="25" width="1" height="1" fill="#3b4150"/><rect x="17" y="25" width="1" height="1" fill="#b8600f"/><rect x="18" y="25" width="2" height="1" fill="#0a0b0e"/><rect x="20" y="25" width="8" height="1" fill="#1b1e26"/><rect x="28" y="25" width="3" height="1" fill="#0a0b0e"/><rect x="31" y="25" width="1" height="1" fill="#3b4150"/><rect x="0" y="26" width="9" height="1" fill="#4a4f5c"/><rect x="9" y="26" width="1" height="1" fill="#d9d3c3"/><rect x="10" y="26" width="1" height="1" fill="#a9a291"/><rect x="11" y="26" width="1" height="1" fill="#d9d3c3"/><rect x="12" y="26" width="1" height="1" fill="#a9a291"/><rect x="13" y="26" width="1" height="1" fill="#d9d3c3"/><rect x="14" y="26" width="1" height="1" fill="#b8600f"/><rect x="15" y="26" width="1" height="1" fill="#3b4150"/><rect x="16" y="26" width="16" height="1" fill="#0a0b0e"/><rect x="32" y="26" width="1" height="1" fill="#b8600f"/><rect x="33" y="26" width="1" height="1" fill="#d9d3c3"/><rect x="34" y="26" width="1" height="1" fill="#a9a291"/><rect x="35" y="26" width="1" height="1" fill="#d9d3c3"/><rect x="36" y="26" width="1" height="1" fill="#a9a291"/><rect x="37" y="26" width="2" height="1" fill="#d9d3c3"/><rect x="39" y="26" width="9" height="1" fill="#4a4f5c"/><rect x="0" y="27" width="13" height="1" fill="#4a4f5c"/><rect x="13" y="27" width="1" height="1" fill="#3b4150"/><rect x="14" y="27" width="19" height="1" fill="#0a0b0e"/><rect x="33" y="27" width="1" height="1" fill="#b8600f"/><rect x="34" y="27" width="1" height="1" fill="#3b4150"/><rect x="35" y="27" width="13" height="1" fill="#4a4f5c"/><rect x="0" y="28" width="12" height="1" fill="#30343d"/><rect x="12" y="28" width="1" height="1" fill="#3b4150"/><rect x="13" y="28" width="22" height="1" fill="#0a0b0e"/><rect x="35" y="28" width="2" height="1" fill="#3b4150"/><rect x="37" y="28" width="11" height="1" fill="#30343d"/><rect x="0" y="29" width="12" height="1" fill="#30343d"/><rect x="12" y="29" width="1" height="1" fill="#3b4150"/><rect x="13" y="29" width="10" height="1" fill="#0a0b0e"/><rect x="23" y="29" width="2" height="1" fill="#1b1e26"/><rect x="25" y="29" width="11" height="1" fill="#0a0b0e"/><rect x="36" y="29" width="1" height="1" fill="#3b4150"/><rect x="37" y="29" width="11" height="1" fill="#30343d"/><rect x="0" y="30" width="12" height="1" fill="#30343d"/><rect x="12" y="30" width="1" height="1" fill="#3b4150"/><rect x="13" y="30" width="10" height="1" fill="#0a0b0e"/><rect x="23" y="30" width="2" height="1" fill="#1b1e26"/><rect x="25" y="30" width="11" height="1" fill="#0a0b0e"/><rect x="36" y="30" width="1" height="1" fill="#3b4150"/><rect x="37" y="30" width="11" height="1" fill="#30343d"/><rect x="0" y="31" width="12" height="1" fill="#30343d"/><rect x="12" y="31" width="1" height="1" fill="#3b4150"/><rect x="13" y="31" width="3" height="1" fill="#0a0b0e"/><rect x="16" y="31" width="1" height="1" fill="#1b1e26"/><rect x="17" y="31" width="6" height="1" fill="#0a0b0e"/><rect x="23" y="31" width="2" height="1" fill="#1b1e26"/><rect x="25" y="31" width="6" height="1" fill="#0a0b0e"/><rect x="31" y="31" width="1" height="1" fill="#1b1e26"/><rect x="32" y="31" width="4" height="1" fill="#0a0b0e"/><rect x="36" y="31" width="1" height="1" fill="#3b4150"/><rect x="37" y="31" width="11" height="1" fill="#30343d"/><rect x="0" y="32" width="12" height="1" fill="#30343d"/><rect x="12" y="32" width="1" height="1" fill="#3b4150"/><rect x="13" y="32" width="3" height="1" fill="#0a0b0e"/><rect x="16" y="32" width="1" height="1" fill="#1b1e26"/><rect x="17" y="32" width="6" height="1" fill="#0a0b0e"/><rect x="23" y="32" width="2" height="1" fill="#1b1e26"/><rect x="25" y="32" width="6" height="1" fill="#0a0b0e"/><rect x="31" y="32" width="1" height="1" fill="#1b1e26"/><rect x="32" y="32" width="4" height="1" fill="#0a0b0e"/><rect x="36" y="32" width="1" height="1" fill="#3b4150"/><rect x="37" y="32" width="11" height="1" fill="#30343d"/><rect x="0" y="33" width="12" height="1" fill="#30343d"/><rect x="12" y="33" width="1" height="1" fill="#3b4150"/><rect x="13" y="33" width="3" height="1" fill="#0a0b0e"/><rect x="16" y="33" width="1" height="1" fill="#1b1e26"/><rect x="17" y="33" width="6" height="1" fill="#0a0b0e"/><rect x="23" y="33" width="2" height="1" fill="#1b1e26"/><rect x="25" y="33" width="6" height="1" fill="#0a0b0e"/><rect x="31" y="33" width="1" height="1" fill="#1b1e26"/><rect x="32" y="33" width="4" height="1" fill="#0a0b0e"/><rect x="36" y="33" width="1" height="1" fill="#3b4150"/><rect x="37" y="33" width="11" height="1" fill="#30343d"/><rect x="0" y="34" width="12" height="1" fill="#30343d"/><rect x="12" y="34" width="1" height="1" fill="#3b4150"/><rect x="13" y="34" width="3" height="1" fill="#0a0b0e"/><rect x="16" y="34" width="1" height="1" fill="#1b1e26"/><rect x="17" y="34" width="6" height="1" fill="#0a0b0e"/><rect x="23" y="34" width="2" height="1" fill="#1b1e26"/><rect x="25" y="34" width="6" height="1" fill="#0a0b0e"/><rect x="31" y="34" width="1" height="1" fill="#1b1e26"/><rect x="32" y="34" width="4" height="1" fill="#0a0b0e"/><rect x="36" y="34" width="1" height="1" fill="#3b4150"/><rect x="37" y="34" width="11" height="1" fill="#30343d"/><rect x="0" y="35" width="12" height="1" fill="#30343d"/><rect x="12" y="35" width="1" height="1" fill="#3b4150"/><rect x="13" y="35" width="3" height="1" fill="#0a0b0e"/><rect x="16" y="35" width="1" height="1" fill="#1b1e26"/><rect x="17" y="35" width="6" height="1" fill="#0a0b0e"/><rect x="23" y="35" width="2" height="1" fill="#1b1e26"/><rect x="25" y="35" width="6" height="1" fill="#0a0b0e"/><rect x="31" y="35" width="1" height="1" fill="#1b1e26"/><rect x="32" y="35" width="4" height="1" fill="#0a0b0e"/><rect x="36" y="35" width="1" height="1" fill="#3b4150"/><rect x="37" y="35" width="11" height="1" fill="#30343d"/></g><rect class="spr-cursor" x="24" y="6" width="2" height="1" fill="#ffb35c"/><g class="spr-a"><rect x="12" y="24" width="2" height="1" fill="#c58c63"/><rect x="12" y="25" width="2" height="1" fill="#0a0b0e"/><rect x="34" y="25" width="2" height="1" fill="#c58c63"/><rect x="34" y="26" width="2" height="1" fill="#0a0b0e"/><rect x="13" y="27" width="2" height="1" fill="#0a0b0e"/><rect x="33" y="27" width="2" height="1" fill="#0a0b0e"/><rect x="14" y="28" width="2" height="1" fill="#0a0b0e"/><rect x="32" y="28" width="2" height="1" fill="#0a0b0e"/></g><g class="spr-b"><rect x="34" y="24" width="2" height="1" fill="#c58c63"/><rect x="12" y="25" width="2" height="1" fill="#c58c63"/><rect x="34" y="25" width="2" height="1" fill="#0a0b0e"/><rect x="12" y="26" width="2" height="1" fill="#0a0b0e"/><rect x="13" y="27" width="2" height="1" fill="#0a0b0e"/><rect x="33" y="27" width="2" height="1" fill="#0a0b0e"/><rect x="14" y="28" width="2" height="1" fill="#0a0b0e"/><rect x="32" y="28" width="2" height="1" fill="#0a0b0e"/></g></svg>
       <div>
@@ -357,7 +483,6 @@
         <p class="phrase"><span lang="es">La noche es larga para quien se queda despierto.</span><span lang="en">The night is long for those who stay awake.</span></p>
       </div>
     </div>
-    <p><a href="https://pacha2880.github.io/pachablog/"><span lang="es">Blog</span><span lang="en">Blog (Spanish)</span></a></p>
   </footer>
 
   <script>
@@ -366,7 +491,7 @@
       var titles = { es: "Rodrigo Salguero, Software Engineer", en: "Rodrigo Salguero, Software Engineer" };
       function dark() { var t = d.getAttribute("data-theme"); return t ? t === "dark" : d.classList.contains("night") || matchMedia("(prefers-color-scheme: dark)").matches; }
       var tb = document.getElementById("theme-btn");
-      function syncTheme() { tb.setAttribute("aria-pressed", String(dark())); }
+      function syncTheme() {}
       syncTheme();
       tb.addEventListener("click", function () {
         var next = dark() ? "light" : "dark";
